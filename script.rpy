@@ -66,12 +66,12 @@ define calls = {
     }
 }
 
-default sanity = 1
+default sanity = 4
 default performance = 0
 
 label start:
     scene bg office
-    show player sane at left
+    show player saner at left
     show manager normal at right
 
     m "Welcome to MegaCorp Industries!"
@@ -93,8 +93,8 @@ label start:
 
 label call_loop:
     "*ring ring*"
-    $ sanity -= 1
-    if sanity > 0:
+    call updateSanity(-1)
+    if sanity >= 3:
         p "Thank you for calling MegaCorp, how can I help you today?"
     else:
         p "Thank you for calling MegaCorp, how can I harm you today?"
@@ -111,3 +111,15 @@ label get_response:
         $ renpy.jump("verb_" + verb)
     else:
         jump bad_answer
+
+label updateSanity(change):
+    $ sanity += change
+    if sanity >= 4:
+        show player saner at left
+    elif sanity >= 3:
+        show player sane at left
+    elif sanity >= 2:
+        show player insane at left
+    else:
+        show player insaner at left
+    return

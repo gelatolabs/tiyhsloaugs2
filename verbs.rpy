@@ -9,7 +9,7 @@ label verb_refer:
     if noun == "sales":
         p "Let me transfer you to our sales department."
         $ performance += 1
-        $ sanity -= 1
+        call updateSanity(-1)
         c "Wait-"
         "*click*"
         jump call_loop
