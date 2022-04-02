@@ -16,13 +16,13 @@ define calls = {
     },
     "slownet": {
         "message": "The Internet is slow, what causes that?",
-        "verbs": [],
-        "nouns": []
+        "verbs": ["reboot"],
+        "nouns": ["router"]
     },
     "explorer": {
         "message": "Where's Internet Explorer?",
-        "verbs": [],
-        "nouns": []
+        "verbs": ["install", "the"],
+        "nouns": ["aol", "chrome", "garbage", "start menu"]
     },
     "email": {
         "message": "I can't get my email.",
@@ -46,8 +46,8 @@ define calls = {
     },
     "movie": {
         "message": "The HD movie you sold me is 240p.",
-        "verbs": [],
-        "nouns": []
+        "verbs": ["lower"],
+        "nouns": ["standards"]
     },
     "modem": {
         "message": "I think my digital modem is broken.",
