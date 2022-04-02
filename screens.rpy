@@ -185,6 +185,14 @@ screen input(prompt):
             text prompt style "input_prompt"
             input id "input"
 
+    python:
+        for verb in calls[current_call]["verbs"]:
+            renpy.random.seed(verb)
+            ui.text(verb, size=40, color="#f00", xpos=renpy.random.randint(0, 1920), ypos=renpy.random.randint(0, 1080))
+        for noun in calls[current_call]["nouns"]:
+            renpy.random.seed(noun)
+            ui.text(noun, size=40, color="#00f", xpos=renpy.random.randint(0, 1920), ypos=renpy.random.randint(0, 1080))
+
 style input_prompt is default
 
 style input_prompt:
