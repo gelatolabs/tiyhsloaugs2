@@ -3,6 +3,7 @@ define c = Character("Caller")
 define m = Character("Manager")
 
 define global_verbs = ["hang", "refer", "blame", "insult"]
+define global_nouns = ["up", "sales", "customer"]
 define calls = {
     "imploded": {
         "message": "Help, my computer imploded??",
