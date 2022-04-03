@@ -281,17 +281,39 @@ screen stats():
     ## Ensure this appears on top of other screens.
     zorder 99
 
-    text "Day " + str(call_count // 9 + 1) + ", " + str(call_count % 9 + 9).zfill(2) + ":00" pos (48, 45) size 24
+    text "Day " + str(call_count // 9 + 1) + ", " + str(call_count % 9 + 9).zfill(2) + ":00" pos (48, 80) size 24
 
-    bar value sanity range 5 pos (40, 100) xsize 500
-    text "Sanity" pos (48, 105) size 24
+    bar value sanity range 5 pos (40, 135) xsize 500
+    text "Sanity" pos (48, 140) size 24
 
-    bar value performance + 3 range 6 pos (40, 160) xsize 500
-    text "Performance" pos (48, 165) size 24
+    bar value performance + 3 range 6 pos (40, 195) xsize 500
+    text "Performance" pos (48, 200) size 24
 
     if strikes > 0:
-        bar value strikes range 3 pos (40, 220) xsize 500
-        text "Strikes: " + str(strikes) + "/3" pos (48, 225) size 24
+        bar value strikes range 3 pos (40, 255) xsize 500
+        text "Strikes: " + str(strikes) + "/3" pos (48, 260) size 24
+
+
+## Countdown screen ############################################################
+##
+## Call countdown timer overlay.
+
+screen countdown():
+
+    ## Ensure this appears on top of otehr screens.
+    zorder 99
+
+    bar value countdown range countdown_range
+
+    python:
+        def countdownTick():
+            global countdown
+            countdown -= 1
+            if countdown <= 0:
+                renpy.jump("call_loop")
+            return
+
+        ui.timer(1, countdownTick, repeat=True)
 
 
 ## This code ensures that the quick_menu and stats screens are displayed

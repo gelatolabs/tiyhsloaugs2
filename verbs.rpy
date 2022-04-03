@@ -1,7 +1,6 @@
 label verb_hang:
     if noun == "up":
         $ performance -= 1
-        "*click*"
         jump call_loop
     jump bad_answer
 
@@ -11,7 +10,6 @@ label verb_refer:
         $ performance += 1
         call updateSanity(-0.25)
         c "Wait-"
-        "*click*"
         jump call_loop
     jump bad_answer
 
@@ -20,7 +18,6 @@ label verb_blame:
         p "Sorry, it seems your problem exists between the keyboard and chair. We don't solve that kind of problem here."
         $ performance -= 1
         c "Huh?"
-        "*click*"
         jump call_loop
     jump bad_answer
 
@@ -29,7 +26,6 @@ label verb_insult:
         p "You smell."
         $ performance -= 1
         c "Excuse me?"
-        "*click*"
         jump call_loop
     jump bad_answer
 
@@ -62,20 +58,16 @@ label verb_install:
             $ performance -= 1
             c "What the hell is this? Give me my Wingdows back!"
             p "Sorry, this is a one-way install."
-            "*click*"
             jump call_loop
         if noun == "aol":
             p "Sorry, we no longer support Internet Explorer. I'm going to need you to install AOL."
             $ peformance += 1
             c "Oh, great! I've always wanted an AOL. Thank you!"
-            "*click*"
             jump call_loop
         if noun == "chrome":
             p "Sorry, we no longer support Internet Explorer. I'm going to need you to install Gargle Chrome."
             $ performance -= 1
             c "And let Gargle spy on me? I don't think so. I'm downloading Mozzarella."
-            "*click*"
-            p "...Mozzarella?"
             jump call_loop
     jump bad_answer
 
@@ -95,7 +87,6 @@ label verb_the:
             c "I thought I had escaped."
             $ performance -= 1
             c "NOOOOOOOOOOOOOOOOOOOOOOO"
-            "*click*"
             jump call_loop
     jump bad_answer
 
@@ -114,7 +105,6 @@ label verb_reboot:
             "."
             $ performance += 1
             c "Wow, it worked! Thanks!"
-            "*click*"
             jump call_loop
     jump bad_answer
 
@@ -124,7 +114,6 @@ label verb_lower:
             p "Have you tried lowering your standards?"
             $ performance -= 1
             c "I don't think they go low enough to put up with you."
-            "*click*"
             jump call_loop
     jump bad_answer
 

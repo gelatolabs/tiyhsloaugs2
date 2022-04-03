@@ -71,6 +71,8 @@ default call_count = 0
 default sanity = 5
 default performance = 0
 default strikes = 0
+default countdown = 300
+default countdown_range = 300
 
 label start:
     scene bg office
@@ -86,7 +88,9 @@ label start:
     m "Choose the right solution, and the customer might just be satisfied."
     m "As a last resort, you can always just refer the customer to our sales department. Because why fix something when you can just buy another one?"
     m "This will make us happy, but it might make you feel bad. Your call."
-    m "After the call, the customer will rate your service, and each day I'll give you a performance review based on their feedback."
+    m "MegaCorp prides itself in its efficiency. That's why you have a time limit to complete each call in before it's automatically disconnected for your convenience."
+    m "As we strive for perfection through continual improvement, this time limit will decrease each day. So never stop improving!"
+    m "At the end of each day, I'll give you a performance review based on customer feedback."
     m "Three bad performance reviews and you're fired. And as you know, MegaCorp is the OnlyCorp™. So when, err, {i}if{/i} you're fired, you will be forever unemployable and you will probably die alone on the streets."
     m "Hey, no pressure, but so far 100\% of our Customer Synergy Specialists have met the same fate."
     m "But we'll see how long you can {i}delay the inevitable!{/i}"
@@ -95,11 +99,20 @@ label start:
     jump call_loop
 
 label call_loop:
+    hide screen countdown
+
     $ call_count += 1
+    if call_count > 1 and call_count % 9 != 0:
+        "*click*"
     if call_count % 9 == 8:
         jump performance_review
 
     "*ring ring*"
+
+    $ countdown_range = 35 - (call_count // 9 + 1) * 15
+    $ countdown = countdown_range
+    show screen countdown
+
     call updateSanity(-0.1)
     if sanity >= 3:
         p "Thank you for calling MegaCorp, how can I help you today?"
@@ -165,5 +178,6 @@ label performance_review:
 label game_over:
     show player drinking at left
     "And so, our underpaid graduate student's inevitable descent into alcoholism and misery began."
+    "You survived [call_count] calls."
     "GAME OVER"
     $ renpy.quit()
