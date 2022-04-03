@@ -68,7 +68,7 @@ define calls = {
 }
 
 default call_count = 0
-default sanity = 4
+default sanity = 5
 default performance = 0
 default strikes = 0
 
@@ -100,7 +100,7 @@ label call_loop:
         jump performance_review
 
     "*ring ring*"
-    call updateSanity(-1)
+    call updateSanity(-0.1)
     if sanity >= 3:
         p "Thank you for calling MegaCorp, how can I help you today?"
     else:
@@ -129,6 +129,10 @@ label updateSanity(change):
         show player insane at left
     else:
         show player insaner at left
+        if sanity <= 0:
+            p "AAAAAAAAAAAAAAAAAAAAAAA"
+            p "I've had enough. I'm going insane here. I quit."
+            jump game_over
     return
 
 label performance_review:
@@ -160,5 +164,6 @@ label performance_review:
 
 label game_over:
     show player drinking at left
+    "And so, our underpaid graduate student's inevitable descent into alcoholism and misery began."
     "GAME OVER"
-    return
+    $ renpy.quit()
