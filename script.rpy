@@ -1,4 +1,4 @@
-﻿define p = Character("Player")
+﻿define p = Character("[pname]")
 define c = Character("Caller")
 define m = Character("Manager")
 
@@ -120,10 +120,14 @@ init python:
 
 label start:
     scene bg office
+
+    $ renpy.input("Who are you?")
+    $ pname = input_value
+
     show player saner at left
     show manager normal at right
 
-    m "Welcome to MegaCorp Industries!"
+    m "Welcome to MegaCorp Industries, [pname]!"
     m "As our newest Customer Synergy Specialist, you'll be answering the phones and providing the quality technical support MegaCorp is known for."
     m "This is your new best friend: your phone. Protect it with your life."
     m "When it rings, pick it up and listen to the customer's problem. Then all you have to do is fix it!"

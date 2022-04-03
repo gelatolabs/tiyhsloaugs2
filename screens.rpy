@@ -173,11 +173,13 @@ style say_dialogue:
 
 screen input(prompt):
     window:
-        id "window"
-        window:
-            id "namebox"
-            style "namebox"
-            text "Caller" id "who" size 64
+        if prompt != "Who are you?":
+            id "window"
+            window:
+                id "namebox"
+                style "namebox"
+                text "Caller" id "who" size 64
+
         style_prefix "input"
         vbox:
             xalign gui.dialogue_text_xalign
