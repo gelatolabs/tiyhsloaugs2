@@ -624,7 +624,7 @@ style about_label_text is gui_label_text
 style about_text is gui_text
 
 style about_label_text:
-    size 34
+    size 64
 
 
 ## Load and Save screens #######################################################
