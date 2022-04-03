@@ -82,6 +82,41 @@ init python:
         renpy.music.play("audio/keytap-0"+str(renpy.random.randint(1,5))+".mp3", channel="audio")
         input_value = what
 
+    def wordMove(st):
+        num = 0
+        for i in wordSprites:  
+            # renpy why you no use python 3.10, i want switch/case :(
+            if (wordDirection[num] == "U"):
+                i.y = i.y - 1
+            elif (wordDirection[num] == "D"):
+                i.y = i.y + 1
+            elif (wordDirection[num] == "L"):
+                i.x = i.x - 1      
+            elif (wordDirection[num] == "R"):
+                i.y = i.y + 1 
+            elif (wordDirection[num] == "UL"):
+                i.y = i.y - 1
+                i.x = i.x - 1 
+            elif (wordDirection[num] == "UR"):
+                i.y = i.y - 1
+                i.x = i.x + 1
+            elif (wordDirection[num] == "DL"):
+                i.y = i.y + 1
+                i.x = i.x - 1
+            elif (wordDirection[num] == "DR"):
+                i.y = i.y + 1
+                i.x = i.x + 1
+            
+            if (i.x > 1920):
+                i.x = 0
+            if (i.x < 0):
+                i.x = 1920    
+            if (i.y > 1080):
+                i.y = 0
+            if (i.y < 0):
+                i.y = 1080
+            num = num + 1
+        return 0.03        
 
 label start:
     scene bg office
@@ -109,6 +144,15 @@ label start:
 
 label call_loop:
     hide screen countdown
+    hide words
+    python:
+        try:
+            del words
+            del wordSprites
+            del wordDirection
+        except:
+            # this may be the first call loop, in which case the word sprites do not exist
+            pass
 
     $ call_count += 1
     if call_count > 1 and call_count % 9 != 0:
@@ -129,15 +173,32 @@ label call_loop:
         p "Thank you for calling MegaCorp, how can I harm you today?"
 
     $ current_call = renpy.random.choice(list(calls))
+    python:
+        words = SpriteManager(update=wordMove)
+        wordSprites = []
+        wordDirection = []
+        for verb in calls[current_call]["verbs"] + global_verbs:
+            renpy.random.seed(verb)
+            wordSprites.append(words.create(Text(verb, color="#f00")))
+            wordDirection.append(renpy.random.choice(["L", "R", "U", "D", "UL", "UR", "DL", "DR"]))
+        for noun in calls[current_call]["nouns"] + global_nouns:
+            renpy.random.seed(noun)
+            wordSprites.append(words.create(Text(noun, color="#00f")))
+            wordDirection.append(renpy.random.choice(["L", "R", "U", "D", "UL", "UR", "DL", "DR"]))
+        for i in wordSprites:
+            i.x = renpy.random.randint(300, 1620)
+            i.y = renpy.random.randint(100, 980)
     jump get_response
 
 label get_response:
-
-    $ renpy.input(calls[current_call]["message"])
-    $ response = input_value.strip().lower()
-    $ verb = response.partition(' ')[0]
-    $ noun = response.partition(' ')[2]
-
+    
+    show expression words as words  
+    python:
+        renpy.input(calls[current_call]["message"]) 
+        response = input_value.strip().lower()
+        verb = response.partition(' ')[0]
+        noun = response.partition(' ')[2]
+     
     if renpy.has_label("verb_" + verb) and verb in calls[current_call]["verbs"] and noun in calls[current_call]["nouns"] or verb in global_verbs:
         $ renpy.jump("verb_" + verb)
     else:
