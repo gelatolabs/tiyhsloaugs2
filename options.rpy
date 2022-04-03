@@ -29,7 +29,17 @@ define config.version = "1.0"
 ## Text that is placed on the game's about screen. Place the text between the
 ## triple-quotes, and leave a blank line between paragraphs.
 
-define gui.about = _p("""
+define gui.about = _p("""A {a=https://gelatolabs.xyz/}Gelato Labs{/a} production for Ludum Dare 50 {i}(Delay the inevitable){/i}
+
+The Gelato Labs "G-Team" for LD50:
+
+{b}Programming:{/b}
+
+{b}Art:{/b}
+
+{b}Music and Sound:{/b}
+
+{b}Writing:{/b}
 """)
 
 
