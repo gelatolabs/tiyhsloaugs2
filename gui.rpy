@@ -82,7 +82,7 @@ define gui.notify_text_size = 32
 define gui.title_text_size = 128
 
 ## Disable antialiasing
-define gui.text_antialiasing = False
+define gui.text_antialias = False
 
 
 ## Main and Game Menus #########################################################

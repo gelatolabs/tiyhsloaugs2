@@ -33,13 +33,13 @@ define gui.about = _p("""A {a=https://gelatolabs.xyz/}Gelato Labs{/a} production
 
 The Gelato Labs "G-Team" for LD50:
 
-{b}Programming:{/b}
+{u}Programming:{/u}
 
-{b}Art:{/b}
+{u}Art:{/u}
 
-{b}Music and Sound:{/b}
+{u}Music and Sound:{/u}
 
-{b}Writing:{/b}
+{u}Writing:{/u}
 """)
 
 
