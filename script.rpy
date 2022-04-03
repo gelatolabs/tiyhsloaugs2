@@ -74,6 +74,8 @@ default strikes = 0
 default countdown = 300
 default countdown_range = 300
 
+default input_value = ""
+
 init python:
     def Typing(what):
         global input_value
@@ -130,7 +132,9 @@ label call_loop:
     jump get_response
 
 label get_response:
-    $ response = renpy.input(calls[current_call]["message"]).strip().lower()
+
+    $ renpy.input(calls[current_call]["message"])
+    $ response = input_value.strip().lower()
     $ verb = response.partition(' ')[0]
     $ noun = response.partition(' ')[2]
 
