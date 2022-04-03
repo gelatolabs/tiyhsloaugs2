@@ -96,7 +96,7 @@ label start:
 
 label call_loop:
     $ call_count += 1
-    if call_count % 10 == 0:
+    if call_count % 9 == 8:
         jump performance_review
 
     "*ring ring*"

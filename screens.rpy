@@ -281,15 +281,17 @@ screen stats():
     ## Ensure this appears on top of other screens.
     zorder 99
 
-    bar value sanity range 5 pos (40, 40) xsize 500
-    text "Sanity" pos (48, 45) size 24
+    text "Day " + str(call_count // 9 + 1) + ", " + str(call_count % 9 + 9).zfill(2) + ":00" pos (48, 45) size 24
 
-    bar value performance + 3 range 6 pos (40, 100) xsize 500
-    text "Performance" pos (48, 105) size 24
+    bar value sanity range 5 pos (40, 100) xsize 500
+    text "Sanity" pos (48, 105) size 24
+
+    bar value performance + 3 range 6 pos (40, 160) xsize 500
+    text "Performance" pos (48, 165) size 24
 
     if strikes > 0:
-        bar value strikes range 3 pos (40, 160) xsize 500
-        text "Strikes: " + str(strikes) + "/3" pos (48, 165) size 24
+        bar value strikes range 3 pos (40, 220) xsize 500
+        text "Strikes: " + str(strikes) + "/3" pos (48, 225) size 24
 
 
 ## This code ensures that the quick_menu and stats screens are displayed
