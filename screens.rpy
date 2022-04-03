@@ -192,6 +192,7 @@ screen input(prompt):
         for noun in calls[current_call]["nouns"] + global_nouns:
             renpy.random.seed(noun)
             ui.text(noun, size=40, color="#00f", xpos=renpy.random.randint(0, 1920), ypos=renpy.random.randint(0, 1080))
+        renpy.random.seed()
 
 style input_prompt is default
 
