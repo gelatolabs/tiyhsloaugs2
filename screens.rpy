@@ -272,10 +272,27 @@ screen quick_menu():
             textbutton _("Prefs") action ShowMenu('preferences')
 
 
-## This code ensures that the quick_menu screen is displayed in-game, whenever
-## the player has not explicitly hidden the interface.
+## Stats screen ################################################################
+##
+## Sanity and performance meter overlay.
+
+screen stats():
+
+    ## Ensure this appears on top of other screens.
+    zorder 101
+
+    bar value sanity range 5 pos (40, 40) xsize 500
+    text "Sanity" pos (48, 45) size 24
+
+    bar value performance + 3 range 6 pos (40, 100) xsize 500
+    text "Performance" pos (48, 105) size 24
+
+
+## This code ensures that the quick_menu and stats screens are displayed
+## in-game, whenever the player has not explicitly hidden the interface.
 init python:
     config.overlay_screens.append("quick_menu")
+    config.overlay_screens.append("stats")
 
 default quick_menu = True
 
