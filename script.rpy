@@ -67,8 +67,10 @@ define calls = {
     }
 }
 
+default call_count = 0
 default sanity = 4
 default performance = 0
+default strikes = 0
 
 label start:
     scene bg office
@@ -84,7 +86,7 @@ label start:
     m "Choose the right solution, and the customer might just be satisfied."
     m "As a last resort, you can always just refer the customer to our sales department. Because why fix something when you can just buy another one?"
     m "This will make us happy, but it might make you feel bad. Your call."
-    m "After the call, the customer will rate your service, and once in a while I'll give you a performance review based on their feedback."
+    m "After the call, the customer will rate your service, and each day I'll give you a performance review based on their feedback."
     m "Three bad performance reviews and you're fired. And as you know, MegaCorp is the OnlyCorp™. So when, err, {i}if{/i} you're fired, you will be forever unemployable and you will probably die alone on the streets."
     m "Hey, no pressure, but so far 100\% of our Customer Synergy Specialists have met the same fate."
     m "But we'll see how long you can {i}delay the inevitable!{/i}"
@@ -93,6 +95,10 @@ label start:
     jump call_loop
 
 label call_loop:
+    $ call_count += 1
+    if call_count % 10 == 0:
+        jump performance_review
+
     "*ring ring*"
     call updateSanity(-1)
     if sanity >= 3:
@@ -123,4 +129,36 @@ label updateSanity(change):
         show player insane at left
     else:
         show player insaner at left
+    return
+
+label performance_review:
+    show manager normal at right
+    m "Time for your performance review! Let's see..."
+    
+    if performance >= 3:
+        show manager happy at right
+        m "Your performance today was excellent! Keep up the good work. But don't get too comfortable!"
+        m "After all, your failure is inevitable."
+    elif performance >= -2:
+        m "Your performance today was okay. But remember, our expectations rise every day. I trust you'll do better tomorrow."
+    else:
+        show manager angry at right
+        m "Your performance today was terrible!"
+        $ strikes += 1
+        if strikes < 2:
+            m "Keep this up and you'll be fired. Get it together."
+        elif strikes == 2:
+            m "If this happens one more time, you're fired. Get it together."
+        else:
+            m "Three strikes aaaand you're fired. Get out of my sight."
+            hide manager
+            jump game_over
+
+    $ performance = 0
+    hide manager
+    jump call_loop
+
+label game_over:
+    show player drinking at left
+    "GAME OVER"
     return
