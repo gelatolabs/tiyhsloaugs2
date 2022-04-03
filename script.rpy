@@ -135,7 +135,7 @@ label start:
     m "MegaCorp prides itself in its efficiency. That's why you have a time limit to complete each call in before it's automatically disconnected for your convenience."
     m "As we strive for perfection through continual improvement, this time limit will decrease each day. So never stop improving!"
     m "At the end of each day, I'll give you a performance review based on customer feedback."
-    m "Three bad performance reviews and you're fired. And as you know, MegaCorp is the OnlyCorp™. So when, err, {i}if{/i} you're fired, you will be forever unemployable and you will probably die alone on the streets."
+    m "Three bad performance reviews and you're fired. And as you know, MegaCorp is the OnlyCorp. So when, err, {i}if{/i} you're fired, you will be forever unemployable and you will probably die alone on the streets."
     m "Hey, no pressure, but so far 100\% of our Customer Synergy Specialists have met the same fate."
     m "But we'll see how long you can {i}delay the inevitable!{/i}"
 
