@@ -177,7 +177,7 @@ screen input(prompt):
         window:
             id "namebox"
             style "namebox"
-            text "Caller" id "who"
+            text "Caller" id "who" size 64
         style_prefix "input"
         vbox:
             xalign gui.dialogue_text_xalign
