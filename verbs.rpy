@@ -48,7 +48,7 @@ label verb_install:
             c "What's that?"
             p "The Gelato System is a free operating system from Gelato Labs."
             c "Where can I get it?"
-            p "https://2k38.gelatolabs.xyz/"
+            p "{a=https://2k38.gelatolabs.xyz/}https://2k38.gelatolabs.xyz/{/a}"
             c "Okay, let me give it a try."
             "."
             ".."
@@ -61,7 +61,7 @@ label verb_install:
             jump call_loop
         if noun == "aol":
             p "Sorry, we no longer support Internet Explorer. I'm going to need you to install AOL."
-            $ peformance += 1
+            $ performance += 1
             c "Oh, great! I've always wanted an AOL. Thank you!"
             jump call_loop
         if noun == "chrome":

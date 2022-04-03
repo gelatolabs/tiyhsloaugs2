@@ -1,6 +1,6 @@
-﻿define p = Character("[pname]")
-define c = Character("Caller")
-define m = Character("Manager")
+﻿define p = Character("[pname]", color="#6c0")
+define c = Character("Caller", color="#cc0")
+define m = Character("Manager", color="#c06")
 
 define global_verbs = ["hang", "refer", "blame", "insult"]
 define global_nouns = ["up", "sales", "customer"]

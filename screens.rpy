@@ -4,6 +4,19 @@
 
 init offset = -1
 
+image gelato = "images/gelato.png"
+image splashtext:
+    Text("Made for Ludum Dare 50\n\"Delay the inevitable\"", text_align=0.5)
+label splashscreen:
+    scene black
+    show gelato at truecenter with Dissolve(0.5, alpha=True)
+    pause 2
+    hide gelato with Dissolve(0.5, alpha=True)
+    show splashtext at truecenter with Dissolve(0.5, alpha=True)
+    pause 2
+    hide splashtext with Dissolve(0.5, alpha=True)
+    return
+
 
 ################################################################################
 ## Styles
@@ -178,7 +191,7 @@ screen input(prompt):
             window:
                 id "namebox"
                 style "namebox"
-                text "Caller" id "who" size 64
+                text "Caller" id "who" size 64 color "#cc0"
 
         style_prefix "input"
         vbox:
