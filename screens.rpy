@@ -178,7 +178,7 @@ screen input(prompt):
             window:
                 id "namebox"
                 style "namebox"
-                text "Caller" id "who" size 64
+                text "Caller" id "who" size 64 color "#cc0"
 
         style_prefix "input"
         vbox:
