@@ -220,8 +220,10 @@ label updateSanity(change):
     else:
         show player insaner at left
         if sanity <= 0:
-            p "AAAAAAAAAAAAAAAAAAAAAAA"
-            p "I've had enough. I'm going insane here. I quit."
+            "Your blood begins to boil as your grasp on the sane world slips away."
+            "Closing your eyes provides no relief as the voices of unhappy customers echo in your mind."
+            "Erupting in a manical laughter, you somehow manage to squeal out the words."
+            p "I QUEEEEEEEEEEEEEEEET!"
             jump game_over
     return
 
@@ -237,14 +239,17 @@ label performance_review:
         m "Your performance today was okay. But remember, our expectations rise every day. I trust you'll do better tomorrow."
     else:
         show manager angry at right
-        m "Your performance today was terrible!"
         $ strikes += 1
         if strikes < 2:
+            m "Your performance today was terrible!"
             m "Keep this up and you'll be fired. Get it together."
         elif strikes == 2:
+            m "Your performance today was terrible!"
             m "If this happens one more time, you're fired. Get it together."
         else:
-            m "Three strikes aaaand you're fired. Get out of my sight."
+            m "Nice work, that was an absolutely stellar performance! This type of dedication and team spirit is precisely what we're looking for here at MegaCorp Industries."
+            m "We're happy to offer you a promotion, raise, and best of all a reserved parking space!"
+            m "April Fool's genius - you're fired!"
             hide manager
             jump game_over
 
@@ -254,7 +259,8 @@ label performance_review:
 
 label game_over:
     show player drinking at left
-    "And so, our underpaid graduate student's inevitable descent into alcoholism and misery began."
+    "Our underpaid hero's brief foray into the glorious world of customer support has come to a bitter end."
+    "It's time to be reunited with a couple of old friends who have always been there during times like this - Jack and Daniels."
     "You survived [call_count] calls."
     "GAME OVER"
     $ renpy.quit()
