@@ -72,6 +72,13 @@ default sanity = 5
 default performance = 0
 default strikes = 0
 
+init python:
+    def Typing(what):
+        global input_value
+        renpy.music.play("audio/keytap-0"+str(renpy.random.randint(1,5))+".mp3", channel="audio")
+        input_value = what
+
+
 label start:
     scene bg office
     show player saner at left

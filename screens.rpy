@@ -183,7 +183,9 @@ screen input(prompt):
             ypos gui.dialogue_ypos
 
             text prompt style "input_prompt"
-            input id "input"
+            input id "input" changed Typing
+            key "K_RETURN" action Return()
+
 
     python:
         for verb in calls[current_call]["verbs"] + global_verbs:
