@@ -179,11 +179,11 @@ label call_loop:
         wordDirection = []
         for verb in calls[current_call]["verbs"] + global_verbs:
             renpy.random.seed(verb)
-            wordSprites.append(words.create(Text(verb, size=64, color="#09f")))
+            wordSprites.append(words.create(Text(verb, size=64, color="#09f", outlines=[ (absolute(1), "#000", absolute(0), absolute(0)) ])))
             wordDirection.append(renpy.random.choice(["L", "R", "U", "D", "UL", "UR", "DL", "DR"]))
         for noun in calls[current_call]["nouns"] + global_nouns:
             renpy.random.seed(noun)
-            wordSprites.append(words.create(Text(noun, size=64, color="#c00")))
+            wordSprites.append(words.create(Text(noun, size=64, color="#c00", outlines=[ (absolute(1), "#000", absolute(0), absolute(0)) ])))
             wordDirection.append(renpy.random.choice(["L", "R", "U", "D", "UL", "UR", "DL", "DR"]))
         for i in wordSprites:
             i.x = renpy.random.randint(300, 1620)
