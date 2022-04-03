@@ -172,10 +172,13 @@ style say_dialogue:
 ## https://www.renpy.org/doc/html/screen_special.html#input
 
 screen input(prompt):
-    style_prefix "input"
-
     window:
-
+        id "window"
+        window:
+            id "namebox"
+            style "namebox"
+            text "Caller" id "who"
+        style_prefix "input"
         vbox:
             xalign gui.dialogue_text_xalign
             xpos gui.dialogue_xpos
