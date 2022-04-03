@@ -414,12 +414,22 @@ style navigation_button_text:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
+image menu_logo:
+    "images/logo.png"
+    xalign 0.6
+    zoom 0.72
+    ease 3.0 zoom 0.7
+    ease 3.0 zoom 0.72
+    repeat
+
+
 screen main_menu():
 
     ## This ensures that any other menu screen is replaced.
     tag menu
 
     add gui.main_menu_background
+    add im.Blur("images/megacorp.png", 2) alpha 0.2 xalign 0.5 yalign 0.5 zoom 1.4
 
     ## This empty frame darkens the main menu.
     frame:
@@ -433,9 +443,9 @@ screen main_menu():
 
         vbox:
             style "main_menu_vbox"
+            add "menu_logo"
 
-            text "[config.name!t]":
-                style "main_menu_title"
+            #    style "main_menu_title"
 
 
 style main_menu_frame is empty

@@ -118,6 +118,22 @@ init python:
             num = num + 1
         return 0.03        
 
+transform text_shake:
+    parallel:
+        block:
+            linear 0.1 xoffset -2 yoffset 2 
+            linear 0.1 xoffset 3 yoffset -3 
+            linear 0.1 xoffset 2 yoffset -2
+            linear 0.1 xoffset -3 yoffset 3
+            linear 0.1 xoffset 0 yoffset 0
+            repeat
+    parallel:
+        block:
+            alpha .2
+            linear 1.0 alpha .9
+            linear 1.0 alpha .2
+            repeat    
+
 label start:
     scene bg office
 
@@ -165,7 +181,9 @@ label call_loop:
     if call_count % 9 == 8:
         jump performance_review
 
-    "*ring ring*"
+    show text "{size=72}*ring ring*{/size}" at text_shake
+    "..."
+    hide text
 
     $ countdown_range = 130 - (call_count // 9 + 1) * 10
     $ countdown = countdown_range
