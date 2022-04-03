@@ -283,17 +283,17 @@ screen stats():
     ## Ensure this appears on top of other screens.
     zorder 99
 
-    text "{b}Day " + str(call_count // 9 + 1) + ", " + str(call_count % 9 + 9).zfill(2) + ":00{/b}" xalign 0.5 ypos 80 size 30
+    text "Day " + str(call_count // 9 + 1) + ", " + str(call_count % 9 + 9).zfill(2) + ":00" xalign 0.5 ypos 98 size 64
 
     bar value sanity range 5 pos (40, 80) xsize 500
-    text "Sanity" pos (48, 85) size 24
+    text "Sanity" pos (51, 87) size 24
 
     bar value performance + 3 range 6 pos (40, 140) xsize 500
-    text "Performance" pos (48, 145) size 24
+    text "Performance" pos (51, 147) size 24
 
     if strikes > 0:
         bar value strikes range 3 pos (40, 200) xsize 500
-        text "Strikes: " + str(strikes) + "/3" pos (48, 205) size 24
+        text "Strikes: " + str(strikes) + "/3" pos (51, 207) size 24
 
 
 ## Countdown screen ############################################################
