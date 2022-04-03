@@ -302,7 +302,7 @@ screen stats():
 
 screen countdown():
 
-    ## Ensure this appears on top of otehr screens.
+    ## Ensure this appears on top of other screens.
     zorder 99
 
     bar value countdown range countdown_range
