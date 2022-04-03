@@ -309,6 +309,7 @@ screen countdown():
         def countdownTick():
             global countdown
             countdown -= 1
+            renpy.restart_interaction()
             if countdown <= 0:
                 renpy.jump("call_loop")
             return

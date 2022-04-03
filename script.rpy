@@ -109,7 +109,7 @@ label call_loop:
 
     "*ring ring*"
 
-    $ countdown_range = 35 - (call_count // 9 + 1) * 15
+    $ countdown_range = 130 - (call_count // 9 + 1) * 10
     $ countdown = countdown_range
     show screen countdown
 
