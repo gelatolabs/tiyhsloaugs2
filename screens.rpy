@@ -279,7 +279,7 @@ screen quick_menu():
 screen stats():
 
     ## Ensure this appears on top of other screens.
-    zorder 101
+    zorder 99
 
     bar value sanity range 5 pos (40, 40) xsize 500
     text "Sanity" pos (48, 45) size 24
