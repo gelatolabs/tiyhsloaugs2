@@ -287,6 +287,10 @@ screen stats():
     bar value performance + 3 range 6 pos (40, 100) xsize 500
     text "Performance" pos (48, 105) size 24
 
+    if strikes > 0:
+        bar value strikes range 3 pos (40, 160) xsize 500
+        text "Strikes: " + str(strikes) + "/3" pos (48, 165) size 24
+
 
 ## This code ensures that the quick_menu and stats screens are displayed
 ## in-game, whenever the player has not explicitly hidden the interface.
