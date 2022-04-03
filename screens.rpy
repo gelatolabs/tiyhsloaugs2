@@ -610,8 +610,7 @@ screen about():
 
         vbox:
 
-            label "[config.name!t]"
-            text _("Version [config.version!t]\n")
+            label "[config.name!t]\n"
 
             ## gui.about is usually set in options.rpy.
             if gui.about:
@@ -625,7 +624,7 @@ style about_label_text is gui_label_text
 style about_text is gui_text
 
 style about_label_text:
-    size gui.label_text_size
+    size 34
 
 
 ## Load and Save screens #######################################################
