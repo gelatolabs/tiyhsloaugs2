@@ -12,6 +12,7 @@ define audio.goodeval = "audio/goodeval.mp3"
 define audio.badeval = "audio/badeval.mp3"
 define audio.okayeval = "audio/okayeval.mp3"
 define audio.gameover = "audio/gameover.mp3"
+define audio.drinking = "audio/drinking.mp3"
 define audio.ringtone1 = "audio/ringtone1.mp3"
 define audio.ringtone2 = "audio/ringtone2.mp3"
 define audio.ringtone3 = "audio/ringtone3.mp3"
@@ -370,6 +371,7 @@ label performance_review:
 label game_over:
     stop chatter fadeout 1
     play music gameover
+    play sound drinking
     scene black
     show player drinking at left
     "Our underpaid hero's brief foray into the glorious world of customer support has come to a bitter end."
