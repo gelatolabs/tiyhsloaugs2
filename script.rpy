@@ -2,6 +2,16 @@
 define c = Character("Caller", color="#cc0")
 define m = Character("Manager", color="#c06")
 
+define audio.music = "audio/music.mp3"
+define audio.chatter = "audio/chatter.mp3"
+define audio.goodcall = "audio/goodcall.mp3"
+define audio.badcall = "audio/badcall.mp3"
+define audio.invalidcall = "audio/invalidcall.mp3"
+define audio.goodeval = "audio/goodeval.mp3"
+define audio.badeval = "audio/badeval.mp3"
+define audio.okayeval = "audio/okayeval.mp3"
+define audio.gameover = "audio/gameover.mp3"
+
 define global_verbs = ["hang", "refer", "blame", "insult"]
 define global_nouns = ["up", "sales", "customer"]
 define calls = {
@@ -77,6 +87,8 @@ default countdown_range = 300
 default input_value = ""
 
 init python:
+    renpy.music.register_channel("chatter", "sfx", True)
+
     def Typing(what):
         global input_value
         renpy.music.play("audio/keytap-0"+str(renpy.random.randint(1,5))+".mp3", channel="audio")
@@ -135,6 +147,8 @@ transform text_shake:
             repeat    
 
 label start:
+    play chatter chatter
+    stop music fadeout 2
     scene bg office
 
     $ renpy.input("Who are you?")
@@ -161,6 +175,7 @@ label start:
     m "But we'll see how long you can {i}delay the inevitable!{/i}"
 
     hide manager
+    play music music
     jump call_loop
 
 label call_loop:
@@ -234,6 +249,16 @@ label get_response:
         c "Huh, what are you saying? I couldn't understand you."
         jump get_response
 
+label updatePerformance(change):
+    $ performance += change
+    if change == 1:
+        play sound goodcall
+    elif change == -1:
+        play sound badcall
+    elif change == -0.2:
+        play sound invalidcall
+    return
+
 label updateSanity(change):
     $ sanity += change
     if sanity >= 4:
@@ -257,12 +282,15 @@ label performance_review:
     m "Time for your performance review! Let's see..."
     
     if performance >= 3:
+        play sound goodeval
         show manager happy at right
         m "Your performance today was excellent! Keep up the good work. But don't get too comfortable!"
         m "After all, your failure is inevitable."
     elif performance >= -2:
+        play sound okayeval
         m "Your performance today was okay. But remember, our expectations rise every day. I trust you'll do better tomorrow."
     else:
+        play sound badeval
         show manager angry at right
         $ strikes += 1
         if strikes < 2:
@@ -283,6 +311,9 @@ label performance_review:
     jump call_loop
 
 label game_over:
+    stop chatter fadeout 1
+    play music gameover
+    scene black
     show player drinking at left
     "Our underpaid hero's brief foray into the glorious world of customer support has come to a bitter end."
     "It's time to be reunited with a couple of old friends who have always been there during times like this - Jack and Daniels."

@@ -1,6 +1,6 @@
 label verb_hang:
     if noun == "up":
-        $ performance -= 1
+        call updatePerformance(-1)
         jump call_loop
     jump bad_answer
 
@@ -8,7 +8,7 @@ label verb_refer:
     if noun == "sales":
         p "Let me transfer you to our sales department."
         c "Wait-"
-        $ performance += 1
+        call updatePerformance(1)
         call updateSanity(-0.25)
         jump call_loop
     jump bad_answer
@@ -17,7 +17,7 @@ label verb_blame:
     if noun == "user" or noun == "caller" or noun =="customer":
         p "Sorry, it seems your problem exists between the keyboard and chair. We don't solve that kind of problem here."
         c "Huh?"
-        $ performance -= 1
+        call updatePerformance(-1)
         jump call_loop
     jump bad_answer
 
@@ -25,7 +25,7 @@ label verb_insult:
     if noun == "user" or noun == "caller" or noun =="customer":
         p "You smell."
         c "Excuse me?"
-        $ performance -= 1
+        call updatePerformance(-1)
         jump call_loop
     jump bad_answer
 
@@ -40,7 +40,7 @@ label verb_call:
         "FBI" "Are you kidding me, call the coast guard you numbskull!"
         "*The FBI Agent hangs up* Oh well, it was worth a try."
         p "We appear to be having technical difficulties at this moment, please call again later."
-        $ performance -= 1
+        call updatePerformance(-1)
         jump call_loop
     jump bad_answer
 
@@ -59,7 +59,7 @@ label verb_install:
         "."
         c "What the hell is this? Give me my Wingdows back!"
         p "Sorry, this is a one-way install."
-        $ performance -= 1
+        call updatePerformance(-1)
         jump call_loop
     if noun == "wingdows":
         p "You're going to need to purchase Wingdows."
@@ -67,7 +67,7 @@ label verb_install:
         p "You'll have to consult Master B Ates. Legend has it he founded the company with one hand."
         c "Perfect, thank you - what is his number."
         p "1-900-WIN-BLOW. Thanks and have a prosperous future with a happy ending."
-        $ performance += 1
+        call updatePerformance(1)
         jump call_loop
     elif noun == "aol":
         p "Why would you want to use that?"
@@ -77,7 +77,7 @@ label verb_install:
         p "It's called AOL, short for America's Open Legs."
         c "Sounds like a warm invitation."
         p "You're in for a big surprise."
-        $ performance -= 1
+        call updatePerformance(-1)
         jump call_loop
     elif noun == "chrome":
         p "You're actually better off installing Gargle Chrome."
@@ -86,7 +86,7 @@ label verb_install:
         c "Sounds like fun."
         p "You have no idea."
         "Five hours later Chrome is still not set as default and the customer hangs up."
-        $ performance -= 1
+        call updatePerformance(-1)
         jump call_loop
     jump bad_answer
 
@@ -96,7 +96,7 @@ label verb_the:
         c "Well, okay. I guess I'll just stop using the Internet."
         p "That's probably for the best."
         c "Thanks for your help!"
-        $ performance += 1
+        call updatePerformance(1)
         jump call_loop
     elif noun == "fart menu":
         p "You should find a shortcut to it on the Fart Menu."
@@ -104,7 +104,7 @@ label verb_the:
         p "The lower left-hand side of your screen. Unless you're on Wingdows 11, it's awkwardly in the middle."
         c "Unfortunately I upgraded, I heard this is the best way to experience the Internet."
         p "I bet you did."
-        $ performance += 1
+        call updatePerformance(1)
         jump call_loop
     jump bad_answer
 
@@ -131,7 +131,7 @@ label verb_reboot:
         c "Just like you said, wait 30 minutes..."
         p "Wow, does your internet work now??"
         c "It's blazing fast now, I've been streaming my favourite show {i}Love at First Bite{/i} for the past 30 minutes. Thank you!!"
-        $ performance += 1
+        call updatePerformance(1)
         jump call_loop
     elif noun == "mainframe" and current_call == "imploded":
         p "Could be a frozen Wingdows Update, let's reboot the mainframe."
@@ -143,7 +143,7 @@ label verb_reboot:
         p "*sigh* Just press the power button twice."
         c "Wow, that did it! You are a genius."
         p "Have a good life."
-        $ performance += 1
+        call updatePerformance(1)
         jump call_loop
     elif noun == "time machine":
         p "Do you happen to have a hot tub in the vicinity?"
@@ -155,7 +155,7 @@ label verb_reboot:
         p "According to bro science this will recalibrate the flex capacitor and iniate a resequencing of the warp core."
         c "I'll try that, thanks for the tip!"
         p "May the forth be with you."
-        $ performance -= 1
+        call updatePerformance(-1)
         jump call_loop
     elif noun == "computer":
         p "I think it's best if we proceed with a power cycle."
@@ -166,7 +166,7 @@ label verb_reboot:
         c "But how can I fit my pc in the washing machine?"
         p "Just press the power button, wait for a minute and then press it again."
         c "Sure thing boss!"
-        $ performance += 1
+        call updatePerformance(1)
         jump call_loop
     jump bad_answer
 
@@ -174,7 +174,7 @@ label verb_lower:
     if noun == "standards":
         p "Have you tried lowering your standards?"
         c "I don't think they go low enough to put up with you."
-        $ performance -= 1
+        call updatePerformance(-1)
         jump call_loop
     jump bad_answer
 
@@ -185,7 +185,7 @@ label verb_replace:
         p "I meant the cable from the computer to the wall."
         c "I've seen that show before, which episode?"
         p "The one that ends with me hanging up."
-        $ performance -= 1
+        call updatePerformance(-1)
         jump call_loop
     jump bad_answer
 
@@ -198,7 +198,7 @@ label verb_go:
         p "I hear Uber Feats delivers them now."
         c "I'll get right on that."
         p "Keep me posted."
-        $ performance -= 1
+        call updatePerformance(-1)
         jump call_loop
     jump bad_answer
 
@@ -209,7 +209,7 @@ label verb_purchase:
         p "You'll have to consult Master B Ates. Legend has it he founded the company with one hand."
         c "Perfect, thank you - what is his number."
         p "1-900-WIN-BLOW. Thanks and have a prosperous future with a happy ending."
-        $ performance += 1
+        call updatePerformance(1)
         jump call_loop
     elif noun == "gelato":
         p "This is an easy one, you can resolve this issue by donating 5 bitcoin to Gelato labs."
@@ -219,7 +219,7 @@ label verb_purchase:
         p "Once your transfer is complete you will receive an email with your activation code."
         c "I'll get right on that."
         p "Thank you for your support. We aim to satisfy all of our customers every day in every way."
-        $ performance -= 1
+        call updatePerformance(-1)
         jump call_loop
     jump bad_answer
 
@@ -237,7 +237,7 @@ label verb_destroy:
         c "Router smashed."
         p "Excellent, order a new one and call me when it arrives."
         c "Will do, thank you!"
-        $ performance -= 1
+        call updatePerformance(-1)
         jump call_loop
     jump bad_answer
 
@@ -253,7 +253,7 @@ label verb_reinstall:
         c "I've never done that before."
         p "Me neither, first time for everything!"
         "Five escalations and four hours later they are back to outlooking."
-        $ performance += 1
+        call updatePerformance(1)
         jump call_loop
     jump bad_answer
 
@@ -264,7 +264,7 @@ label verb_ask:
         p "Well, mostly just the postmaster - especially when mail goes missing!"
         c "Perfect, I'll give them a call."
         p "Good luck!"
-        $ performance -= 1
+        call updatePerformance(-1)
         jump call_loop
     jump bad_answer
 
@@ -277,7 +277,7 @@ label verb_look:
         p "Try looking inside the internet."
         c "Inside the internet, how do I get there?"
         p "Just rent a VHS copy of the Matrix and you'll have everything you need."
-        $ performance -= 1
+        call updatePerformance(-1)
         jump call_loop
     jump bad_answer
 
@@ -299,7 +299,7 @@ label verb_unplug:
         c "Yes."
         p "In that case, throw it in the garbage."
         c "Thanks for the tip."
-        $ performance += 1
+        call updatePerformance(1)
         jump call_loop
     jump bad_answer
 
@@ -310,7 +310,7 @@ label verb_change:
         p "Drive, it's part of the RAID - Redundant Array of Inexpensive Disks."
         c "Great, what should we do?"
         p "It's going to be a long night..."
-        $ performance -= 1
+        call updatePerformance(-1)
         jump call_loop
     elif noun == "password":
         p "We're going to have to change your password."
@@ -320,7 +320,7 @@ label verb_change:
         p "Perfect, now type a new password."
         c "Any special requirements?"
         p "Just one - use only asterisks. Have a nice day!"
-        $ performance -= 1
+        call updatePerformance(-1)
         jump call_loop
     jump bad_answer
 
@@ -333,7 +333,7 @@ label verb_microwave:
         p "Definitely popcorn."
         c "Here goes nothing!"
         "Audible snap crackle pops can be heard in the background before the connection is lost."
-        $ performance -= 1
+        call updatePerformance(-1)
         jump call_loop
     jump bad_answer
 
@@ -346,7 +346,7 @@ label verb_clear:
         c "Done."
         p "Perfect, now I will wait until the payment is verified and get back to you in 3-5 business days."
         c "Thanks!"
-        $ performance -= 1
+        call updatePerformance(-1)
         jump call_loop
     jump bad_answer
 
@@ -359,5 +359,5 @@ label bad_answer:
     "."
     c "It didn't work."
     p "Okay, let's try something else."
-    $ performance -= 0.2
+    call updatePerformance(-0.2)
     jump get_response
