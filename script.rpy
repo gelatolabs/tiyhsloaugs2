@@ -3,6 +3,8 @@ define c = Character("Caller", color="#cc0")
 define m = Character("Manager", color="#c06")
 
 define audio.music = "audio/music.mp3"
+define audio.musicfast = "audio/music-fast.mp3"
+define audio.musicfaster = "audio/music-faster.mp3"
 define audio.menumusic = "audio.menumusic.mp3"
 define audio.chatter = "audio/chatter.mp3"
 define audio.goodcall = "audio/goodcall.mp3"
@@ -327,12 +329,20 @@ label updatePerformance(change):
 label updateSanity(change):
     $ sanity += change
     if sanity >= 4:
+        if renpy.music.get_playing() != "audio/music.mp3":
+            play music music
         show player saner at left
     elif sanity >= 3:
+        if renpy.music.get_playing() != "audio/music.mp3":
+            play music music
         show player sane at left
     elif sanity >= 2:
+        if renpy.music.get_playing() != "audio/music-fast.mp3":
+            play music musicfast
         show player insane at left
     else:
+        if renpy.music.get_playing() != "audio/music-faster.mp3":
+            play music musicfaster
         show player insaner at left
         if sanity <= 0:
             hide screen countdown with Dissolve(0.5, alpha=True)
