@@ -397,5 +397,6 @@ label bad_answer:
     elif badAns == 3:
         c "Stop wasting my time. I have things to do!"
     p "Okay, let's try something else."
+    call updateSanity(-0.1)
     call updatePerformance(-0.2)
     jump get_response
