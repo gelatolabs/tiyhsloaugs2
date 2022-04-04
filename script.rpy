@@ -310,6 +310,7 @@ label get_response:
         else:
             jump bad_answer
     else:
+        play sound invalidcall
         c "Huh, what are you saying? I couldn't understand you."
         jump get_response
 
