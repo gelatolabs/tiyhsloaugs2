@@ -34,7 +34,7 @@ define calls = {
     },
     "slownet": {
         "message": "The Internet is slow, what causes that?",
-        "verbs": ["reboot", "cancel", "destroy", "disconnect"],
+        "verbs": ["reboot", "destroy", "disconnect"],
         "nouns": ["router", "internet", "computer", "time machine"]
     },
     "explorer": {
@@ -44,7 +44,7 @@ define calls = {
     },
     "email": {
         "message": "I can't get my email.",
-        "verbs": ["look", "reinstall", "brighten", "ask", "reset"],
+        "verbs": ["look", "reinstall", "ask", "reset"],
         "nouns": ["harder", "outlook", "post office", "password"]
     },
     "hold": {
@@ -54,12 +54,12 @@ define calls = {
     },
     "password": {
         "message": "My keyboard is broken. It only types asterisks for passwords.",
-        "verbs": ["change", "reboot", "defrag", "unplug"],
+        "verbs": ["change", "reboot", "unplug"],
         "nouns": ["password", "computer", "hard drive", "keyboard"]
     },
     "broken": {
         "message": "COMPUTER'S BROKEN!",
-        "verbs": ["clear", "try", "reboot", "microwave"],
+        "verbs": ["clear", "try", "reboot"],
         "nouns": ["cache", "again", "computer", "microwave"]
     },
     "movie": {
@@ -70,17 +70,17 @@ define calls = {
     "modem": {
         "message": "I think my digital modem is broken.",
         "verbs": ["reboot"],
-        "nouns": ["modem", "router", "computer", "refrigerator", "internet", "mainframe", "cellphone", "tablet", "yourself", "internet explorer", "network switch", "firewall", "server"]
+        "nouns": ["modem", "router", "computer", "refrigerator", "cellphone", "yourself", "server"]
     },
     "launchcodes": {
         "message": "I lost my launch codes.",
-        "verbs": ["change", "run", "defrag", "reboot"],
+        "verbs": ["change", "run", "defrag"],
         "nouns": ["codes", "away", "hard drive", "nukes"]
     },
     "mouse": {
         "message": "My mouse doesn't work.",
-        "verbs": ["enable", "plug", "install", "reboot"],
-        "nouns": ["mouse keys", "in", "adobe", "computer", "modem"]
+        "verbs": ["enable", "plug", "reboot"],
+        "nouns": ["mouse keys", "in", "computer", "modem"]
     }
 }
 
