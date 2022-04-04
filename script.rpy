@@ -87,35 +87,35 @@ init python:
         for i in wordSprites:  
             # renpy why you no use python 3.10, i want switch/case :(
             if (wordDirection[num] == "U"):
-                i.y = i.y - 1
+                i.y -= 1
             elif (wordDirection[num] == "D"):
-                i.y = i.y + 1
+                i.y += 1
             elif (wordDirection[num] == "L"):
-                i.x = i.x - 1      
+                i.x -= 1
             elif (wordDirection[num] == "R"):
-                i.y = i.y + 1 
+                i.x += 1
             elif (wordDirection[num] == "UL"):
-                i.y = i.y - 1
-                i.x = i.x - 1 
+                i.y -= 1
+                i.x -= 1
             elif (wordDirection[num] == "UR"):
-                i.y = i.y - 1
-                i.x = i.x + 1
+                i.y -= 1
+                i.x += 1
             elif (wordDirection[num] == "DL"):
-                i.y = i.y + 1
-                i.x = i.x - 1
+                i.y += 1
+                i.x -= 1
             elif (wordDirection[num] == "DR"):
-                i.y = i.y + 1
-                i.x = i.x + 1
+                i.y += 1
+                i.x += 1
             
-            if (i.x > 1920):
-                i.x = 0
-            if (i.x < 0):
-                i.x = 1920    
-            if (i.y > 1080):
-                i.y = 0
-            if (i.y < 0):
-                i.y = 1080
-            num = num + 1
+            if i.x > 1920:
+                wordDirection[num] = wordDirection[num].replace("R", "L")
+            if i.x < 0:
+                wordDirection[num] = wordDirection[num].replace("L", "R")
+            if i.y > 752:
+                wordDirection[num] = wordDirection[num].replace("D", "U")
+            if i.y < 27:
+                wordDirection[num] = wordDirection[num].replace("U", "D")
+            num += 1
         return 0.03        
 
 transform text_shake:
@@ -213,7 +213,7 @@ label call_loop:
             wordDirection.append(renpy.random.choice(["L", "R", "U", "D", "UL", "UR", "DL", "DR"]))
         for i in wordSprites:
             i.x = renpy.random.randint(300, 1620)
-            i.y = renpy.random.randint(100, 980)
+            i.y = renpy.random.randint(100, 752)
     jump get_response
 
 label get_response:
