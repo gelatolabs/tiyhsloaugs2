@@ -11,6 +11,10 @@ define audio.goodeval = "audio/goodeval.mp3"
 define audio.badeval = "audio/badeval.mp3"
 define audio.okayeval = "audio/okayeval.mp3"
 define audio.gameover = "audio/gameover.mp3"
+define audio.ringtone1 = "audio/ringtone1.mp3"
+define audio.ringtone2 = "audio/ringtone2.mp3"
+define audio.ringtone3 = "audio/ringtone3.mp3"
+define audio.ringtone4 = "audio/ringtone4.mp3"
 
 define global_verbs = ["hang", "refer", "blame", "insult"]
 define global_nouns = ["up", "sales", "customer"]
@@ -77,6 +81,7 @@ define calls = {
     }
 }
 
+default ringtone = 1
 default call_count = 0
 default sanity = 5
 default performance = 0
@@ -160,6 +165,53 @@ label start:
     m "Welcome to MegaCorp Industries, [pname]!"
     m "As our newest Customer Synergy Specialist, you'll be answering the phones and providing the quality technical support MegaCorp is known for."
     m "This is your new best friend: your phone. Protect it with your life."
+    jump choose_ringtone
+
+label choose_ringtone:
+    menu:
+        "Choose a ringtone for your phone!"
+        "School Day":
+            play sound ringtone1
+            menu:
+                "Use this ringtone?"
+                "Confirm":
+                    stop sound fadeout 1
+                    $ ringtone = 1
+                    jump continue_intro
+                "Back":
+                    jump choose_ringtone
+        "Chime Time":
+            play sound ringtone2
+            menu:
+                "Use this ringtone?"
+                "Confirm":
+                    stop sound fadeout 1
+                    $ ringtone = 2
+                    jump continue_intro
+                "Back":
+                    jump choose_ringtone
+        "Game Boing":
+            play sound ringtone3
+            menu:
+                "Use this ringtone?"
+                "Confirm":
+                    stop sound fadeout 1
+                    $ ringtone = 3
+                    jump continue_intro
+                "Back":
+                    jump choose_ringtone
+        "Over The Horizon":
+            play sound ringtone4
+            menu:
+                "Use this ringtone?"
+                "Confirm":
+                    stop sound fadeout 1
+                    $ ringtone = 4
+                    jump continue_intro
+                "Back":
+                    jump choose_ringtone
+
+label continue_intro:
     m "When it rings, pick it up and listen to the customer's problem. Then all you have to do is fix it!"
     m "Keep your responses simple. A {color=#09f}verb{/color} and a {color=#c00}noun{/color} will do. Don't want to confuse the customer."
     m "Our automagical tech support AI will suggest some possible solutions you can try. So convenient!"
@@ -198,8 +250,10 @@ label call_loop:
 
     window hide
     $ renpy.pause(renpy.random.randint(2,10), hard=True)
+    $ renpy.play("audio/ringtone" + str(ringtone) + ".mp3", channel="sound")
     show text "{size=72}*ring ring*{/size}" at text_shake
     "..."
+    stop sound
     window show
     hide text
 
