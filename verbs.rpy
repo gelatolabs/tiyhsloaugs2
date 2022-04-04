@@ -72,12 +72,12 @@ label verb_install:
     elif noun == "aol":
         p "Why would you want to use that?"
         c "To view wholesome pictures on the world wide web."
-        p "Ah yes, well there's another tool that is much better."
+        p "Well, we no longer support Internet Expeller, but we have another tool that is much better."
         c "You don't say. Please, enlighten me."
         p "It's called AOL, short for America's Open Legs."
         c "Sounds like a warm invitation."
         p "You're in for a big surprise."
-        call updatePerformance(-1)
+        call updatePerformance(1)
         jump call_loop
     elif noun == "chrome":
         p "You're actually better off installing Gargle Chrome."
@@ -104,7 +104,12 @@ label verb_the:
         p "The lower left-hand side of your screen. Unless you're on Wingdows 11, it's awkwardly in the middle."
         c "Unfortunately I upgraded, I heard this is the best way to experience the Internet."
         p "I bet you did."
-        call updatePerformance(1)
+        c "Oh no. You're right."
+        p "Sorry?"
+        c "It is in the fart menu!"
+        p "Isn't that good?"
+        c "No. I thought I had escaped. NOOOOOOOOOOOOOOOOOOOOOO"
+        call updatePerformance(-1)
         jump call_loop
     jump bad_answer
 
@@ -133,18 +138,6 @@ label verb_reboot:
         c "It's blazing fast now, I've been streaming my favourite show {i}Love at First Bite{/i} for the past 30 minutes. Thank you!!"
         call updatePerformance(1)
         jump call_loop
-    elif noun == "mainframe" and current_call == "imploded":
-        p "Could be a frozen Wingdows Update, let's reboot the mainframe."
-        c "I don't have any picture frames near my computer."
-        p "No, the mainframe is another word for the computer."
-        c "Ohh I get it, so I have to re-boot the computer?"
-        p "Precisely."
-        c "What size boots does it wear?"
-        p "*sigh* Just press the power button twice."
-        c "Wow, that did it! You are a genius."
-        p "Have a good life."
-        call updatePerformance(1)
-        jump call_loop
     elif noun == "time machine":
         p "Do you happen to have a hot tub in the vicinity?"
         c "Actually yes, we have one in the backyard."
@@ -157,7 +150,16 @@ label verb_reboot:
         p "May the forth be with you."
         call updatePerformance(-1)
         jump call_loop
-    elif noun == "computer":
+    elif noun == "computer" && current_call == "imploded":
+        p "Have you tried turning it off and on again?"
+        c "My computer?"
+        p "Yes."
+        c "But it doesn't exist any more. It imploded."
+        p "Right. Well sorry, that's the best I've got!"
+        c "..."
+        call updatePerformance(-1)
+        jump call_loop
+    elif noun == "computer" && current_call == "broken":
         p "I think it's best if we proceed with a power cycle."
         c "But I don't own a bike."
         p "That's okay, it's just the name of a process."
@@ -232,7 +234,7 @@ label verb_purchase:
 
 label verb_destroy:
     if noun == "router":
-        p "Let's try replacing your router."
+        p "Let's try some percussive maintenance."
         c "Okay, sounds like a plan."
         p "Unplug your router."
         c "Okay, done."
@@ -243,7 +245,7 @@ label verb_destroy:
         p "Raise hammer and smash router."
         c "Router smashed."
         p "Excellent, order a new one and call me when it arrives."
-        c "Will do, thank you!"
+        c "Wait, I thought we were fixing this one!?!?"
         call updatePerformance(-1)
         jump call_loop
     jump bad_answer
@@ -300,7 +302,7 @@ label verb_unplug:
         c "There's no batteries."
         p "Oh, it has an internal battery?"
         c "Yes."
-        p "In that case, check that the dongle."
+        p "In that case, check the dongle."
         c "There's no dongle."
         p "Oh, it's a bluetooth keyboard?"
         c "Yes."
@@ -326,8 +328,9 @@ label verb_change:
         c "Done."
         p "Perfect, now type a new password."
         c "Any special requirements?"
-        p "Just one - use only asterisks. Have a nice day!"
-        call updatePerformance(-1)
+        p "Just one - use only asterisks."
+        c "Thanks! I hope I can remember it."
+        call updatePerformance(1)
         jump call_loop
     jump bad_answer
 
@@ -366,7 +369,6 @@ label verb_plug:
         "..."
         c "Oh hey, it worked! Told you my mouse was plugged in."
         call updatePerformance(1)
-        call updateSanity(-0.2)
         jump call_loop
     jump bad_answer
 

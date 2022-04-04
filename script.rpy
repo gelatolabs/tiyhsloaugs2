@@ -27,17 +27,17 @@ define calls = {
     "imploded": {
         "message": "Help, my computer imploded??",
         "verbs": ["reboot", "replace", "go"],
-        "nouns": ["mainframe", "floppy drive", "outside", "cable"]
+        "nouns": ["mainframe", "outside", "cable"]
     },
     "genuine": {
         "message": "The error message says my copy of Wingdows is not genuine.",
-        "verbs": ["call", "install", "uninstall", "purchase"],
+        "verbs": ["call", "install", "purchase"],
         "nouns": ["fbi", "gelato", "wingdows"]
     },
     "slownet": {
         "message": "The Internet is slow, what causes that?",
-        "verbs": ["reboot", "destroy", "disconnect"],
-        "nouns": ["router", "internet", "computer", "time machine"]
+        "verbs": ["reboot", "destroy"],
+        "nouns": ["router", "computer", "time machine"]
     },
     "explorer": {
         "message": "Where's Internet Expeller?",
@@ -46,8 +46,8 @@ define calls = {
     },
     "email": {
         "message": "I can't get my email.",
-        "verbs": ["look", "reinstall", "ask", "reset"],
-        "nouns": ["harder", "outlook", "post office", "password"]
+        "verbs": ["look", "reinstall", "ask"],
+        "nouns": ["harder", "outlook", "post office"]
     },
     "hold": {
         "message": "I've been on hold for tech support since Tuesday.",
@@ -61,13 +61,13 @@ define calls = {
     },
     "broken": {
         "message": "COMPUTER'S BROKEN!",
-        "verbs": ["clear", "try", "reboot"],
-        "nouns": ["cache", "again", "computer", "microwave"]
+        "verbs": ["clear", "try", "reboot", "microwave"],
+        "nouns": ["cache", "again", "computer"]
     },
     "movie": {
         "message": "The HD movie you sold me is 240p.",
-        "verbs": ["lower", "raise", "reboot", "rewind", "wear"],
-        "nouns": ["standards", "dvd player", "tv", "movie", "glasses"]
+        "verbs": ["lower", "raise", "wear", "return"],
+        "nouns": ["standards", "glasses", "movie"]
     },
     "modem": {
         "message": "I think my digital modem is broken.",
@@ -77,7 +77,7 @@ define calls = {
     "launchcodes": {
         "message": "I lost my launch codes.",
         "verbs": ["change", "run", "defrag"],
-        "nouns": ["codes", "away", "hard drive", "nukes"]
+        "nouns": ["codes", "away", "hard drive"]
     },
     "mouse": {
         "message": "My mouse doesn't work.",
