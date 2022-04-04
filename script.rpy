@@ -217,6 +217,7 @@ label get_response:
     
     show expression words as words  
     python:
+        input_value = ""
         renpy.input(calls[current_call]["message"]) 
         response = input_value.strip().lower()
         verb = response.partition(' ')[0]
