@@ -301,7 +301,7 @@ screen stats():
     ## Ensure this appears on top of other screens.
     zorder 99
 
-    text "Day " + str(call_count // 9 + 1) + ", " + str(call_count % 9 + 9).zfill(2) + ":00" xalign 0.5 ypos 98 size 64
+    text "Day " + str(call_count // 9 + 1) + ", " + str(call_count % 9 + 9).zfill(2) + ":00" xalign 0.5 ypos 98 size 64 color "#000" outlines [ (absolute(1), "#fff", absolute(0), absolute(0)) ]
 
     bar value sanity * 100 range 500 pos (40, 80) xsize 500
     text "Sanity" pos (51, 87) size 24
