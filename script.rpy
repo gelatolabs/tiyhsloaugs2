@@ -3,6 +3,7 @@ define c = Character("Caller", color="#cc0")
 define m = Character("Manager", color="#c06")
 
 define audio.music = "audio/music.mp3"
+define audio.menumusic = "audio.menumusic.mp3"
 define audio.chatter = "audio/chatter.mp3"
 define audio.goodcall = "audio/goodcall.mp3"
 define audio.badcall = "audio/badcall.mp3"
@@ -15,6 +16,7 @@ define audio.ringtone1 = "audio/ringtone1.mp3"
 define audio.ringtone2 = "audio/ringtone2.mp3"
 define audio.ringtone3 = "audio/ringtone3.mp3"
 define audio.ringtone4 = "audio/ringtone4.mp3"
+define audio.hangup = "audio/hangup.mp3"
 
 define global_verbs = ["hang", "refer", "blame", "insult"]
 define global_nouns = ["up", "sales", "customer"]
@@ -244,6 +246,7 @@ label call_loop:
 
     $ call_count += 1
     if call_count > 1 and call_count % 9 != 0:
+        play sound hangup
         "*click*"
     if call_count % 9 == 8:
         jump performance_review
