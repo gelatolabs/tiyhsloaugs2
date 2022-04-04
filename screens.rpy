@@ -442,7 +442,7 @@ screen main_menu():
     tag menu
 
     add gui.main_menu_background
-    add im.Blur("images/megacorp.png", 2) alpha 0.2 xalign 0.5 yalign 0.5 zoom 1.4
+    add im.Blur("images/bg office.png", 2) alpha 0.2 xalign 0.5 yalign 0.5 zoom 1.2
 
     ## This empty frame darkens the main menu.
     frame:
@@ -474,10 +474,10 @@ style main_menu_frame:
     background "gui/overlay/main_menu.png"
 
 style main_menu_vbox:
-    xalign 1.0
+    xalign 0.9
     xoffset -30
     xmaximum 1200
-    yalign 1.0
+    yalign 0.6
     yoffset -30
 
 style main_menu_text:

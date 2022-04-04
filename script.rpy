@@ -156,13 +156,19 @@ transform text_shake:
 label start:
     play chatter chatter
     stop music fadeout 2
-    scene bg office
+    scene bg "#b1b1b1"
+    image smoothoffice = "images/bg office.png"
+    show smoothoffice:
+        alpha 0.2 xalign 0.5 yalign 0.5 zoom 1.2
+        ease 1.0 alpha 1.0 zoom 1.0
+    #scene bg office
+    #hide office
 
     $ renpy.input("Who are you?")
     $ pname = input_value
 
-    show player saner at left
-    show manager normal at right
+    show player saner at left with Dissolve(0.5, alpha=True)
+    show manager normal at right with Dissolve(0.5, alpha=True)
 
     m "Welcome to MegaCorp Industries, [pname]!"
     m "As our newest Customer Synergy Specialist, you'll be answering the phones and providing the quality technical support MegaCorp is known for."
