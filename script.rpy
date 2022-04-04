@@ -182,7 +182,7 @@ label call_loop:
         jump performance_review
 
     window hide
-    $ renpy.pause(renpy.random.randint(2,10))
+    $ renpy.pause(renpy.random.randint(2,10), hard=True)
     show text "{size=72}*ring ring*{/size}" at text_shake
     "..."
     window show
