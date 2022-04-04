@@ -335,6 +335,7 @@ label updateSanity(change):
     else:
         show player insaner at left
         if sanity <= 0:
+            hide screen countdown with Dissolve(0.5, alpha=True)
             "Your blood begins to boil as your grasp on the sane world slips away."
             "Closing your eyes provides no relief as the voices of unhappy customers echo in your mind."
             "Erupting in a manical laughter, you somehow manage to squeal out the words."
