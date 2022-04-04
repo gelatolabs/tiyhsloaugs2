@@ -87,25 +87,25 @@ init python:
         for i in wordSprites:  
             # renpy why you no use python 3.10, i want switch/case :(
             if (wordDirection[num] == "U"):
-                i.y = i.y - 1
+                i.y -= 1
             elif (wordDirection[num] == "D"):
-                i.y = i.y + 1
+                i.y += 1
             elif (wordDirection[num] == "L"):
-                i.x = i.x - 1      
+                i.x -= 1
             elif (wordDirection[num] == "R"):
-                i.y = i.y + 1 
+                i.x += 1
             elif (wordDirection[num] == "UL"):
-                i.y = i.y - 1
-                i.x = i.x - 1 
+                i.y -= 1
+                i.x -= 1
             elif (wordDirection[num] == "UR"):
-                i.y = i.y - 1
-                i.x = i.x + 1
+                i.y -= 1
+                i.x += 1
             elif (wordDirection[num] == "DL"):
-                i.y = i.y + 1
-                i.x = i.x - 1
+                i.y += 1
+                i.x -= 1
             elif (wordDirection[num] == "DR"):
-                i.y = i.y + 1
-                i.x = i.x + 1
+                i.y += 1
+                i.x += 1
             
             if i.x > 1920:
                 wordDirection[num] = wordDirection[num].replace("R", "L")
