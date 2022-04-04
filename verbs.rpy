@@ -109,7 +109,7 @@ label verb_the:
     jump bad_answer
 
 label verb_reboot:
-    if noun == "router" and current_call == "slownet":
+    if noun == "router":
         p "Have you rebooted your router lately?"
         c "What is a router?"
         p "It's a little box that empowers you with the ability to explore the world wide web."
@@ -167,6 +167,13 @@ label verb_reboot:
         p "Just press the power button, wait for a minute and then press it again."
         c "Sure thing boss!"
         call updatePerformance(1)
+        jump call_loop
+    elif noun == "yourself" and current_call == "modem":
+        p "I think you need to reboot yourself."
+        c "...What?"
+        p "You heard me. You need to kick yourself in the ass with a boot"
+        c "You'll be hearing from my lawyer."
+        call updatePerformance(-2)
         jump call_loop
     jump bad_answer
 
@@ -390,5 +397,6 @@ label bad_answer:
     elif badAns == 3:
         c "Stop wasting my time. I have things to do!"
     p "Okay, let's try something else."
+    call updateSanity(-0.1)
     call updatePerformance(-0.2)
     jump get_response
