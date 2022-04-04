@@ -8,12 +8,12 @@ define calls = {
     "imploded": {
         "message": "Help, my computer imploded??",
         "verbs": ["reboot", "replace", "go"],
-        "nouns": ["mainframe", "floppy drive", "outside"]
+        "nouns": ["mainframe", "floppy drive", "outside", "cable"]
     },
     "genuine": {
         "message": "The error message says my copy of Wingdows is not genuine.",
         "verbs": ["call", "install", "uninstall", "purchase"],
-        "nouns": ["fbi", "gelato", "windows"]
+        "nouns": ["fbi", "gelato", "wingdows"]
     },
     "slownet": {
         "message": "The Internet is slow, what causes that?",
@@ -217,6 +217,7 @@ label get_response:
     
     show expression words as words  
     python:
+        input_value = ""
         renpy.input(calls[current_call]["message"]) 
         response = input_value.strip().lower()
         verb = response.partition(' ')[0]
