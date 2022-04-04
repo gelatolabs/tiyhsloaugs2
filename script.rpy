@@ -21,6 +21,33 @@ define audio.ringtone3 = "audio/ringtone3.mp3"
 define audio.ringtone4 = "audio/ringtone4.mp3"
 define audio.hangup = "audio/hangup.mp3"
 
+define audio.manager1 = "audio/voices/1.mp3"
+define audio.manager2 = "audio/voices/2.mp3"
+define audio.manager3 = "audio/voices/3.mp3"
+define audio.manager4 = "audio/voices/4.mp3"
+define audio.manager5 = "audio/voices/5.mp3"
+define audio.manager6 = "audio/voices/6.mp3"
+define audio.manager7 = "audio/voices/7.mp3"
+define audio.manager8 = "audio/voices/8.mp3"
+define audio.manager9 = "audio/voices/9.mp3"
+define audio.manager10 = "audio/voices/10.mp3"
+define audio.manager11 = "audio/voices/11.mp3"
+define audio.manager12 = "audio/voices/12.mp3"
+define audio.manager13 = "audio/voices/13.mp3"
+define audio.manager14 = "audio/voices/14.mp3"
+define audio.manager15 = "audio/voices/15.mp3"
+define audio.manager16 = "audio/voices/16.mp3"
+define audio.perf = "audio/voices/perf.mp3"
+define audio.goodperf1 = "audio/voices/goodperf1.mp3"
+define audio.goodperf2 = "audio/voices/goodperf2.mp3"
+define audio.okayperf = "audio/voices/okayperf.mp3"
+define audio.badperf1 = "audio/voices/badperf1.mp3"
+define audio.badperf2 = "audio/voices/badperf2.mp3"
+define audio.badperf3 = "audio/voices/badperf3.mp3"
+define audio.badperf4 = "audio/voices/badperf4.mp3"
+define audio.badperf5 = "audio/voices/badperf5.mp3"
+define audio.badperf6 = "audio/voices/badperf6.mp3"
+
 define global_verbs = ["hang", "refer", "blame", "insult"]
 define global_nouns = ["up", "sales", "customer"]
 define calls = {
@@ -173,8 +200,11 @@ label start:
     show player saner at left with Dissolve(0.5, alpha=True)
     show manager normal at right with Dissolve(0.5, alpha=True)
 
+    voice manager1
     m "Welcome to MegaCorp Industries, [pname]!"
+    voice manager2
     m "As our newest Customer Synergy Specialist, you'll be answering the phones and providing the quality technical support MegaCorp is known for."
+    voice manager3
     m "This is your new best friend: your phone. Protect it with your life."
     jump choose_ringtone
 
@@ -223,18 +253,31 @@ label choose_ringtone:
                     jump choose_ringtone
 
 label continue_intro:
+    voice manager4
     m "When it rings, pick it up and listen to the customer's problem. Then all you have to do is fix it!"
+    voice manager5
     m "Keep your responses simple. A {color=#09f}verb{/color} and a {color=#c00}noun{/color} will do. Don't want to confuse the customer."
+    voice manager6
     m "Our automagical tech support AI will suggest some possible solutions you can try. So convenient!"
+    voice manager7
     m "But be careful, some of them are wrong."
+    voice manager8
     m "Choose the right solution, and the customer might just be satisfied."
+    voice manager9
     m "As a last resort, you can always just {color=09f}refer{/color} the customer to our {color=#c00}sales{/color} department. Because why fix something when you can just buy another one?"
+    voice manager10
     m "This will make us happy, but it might make you feel bad. Your call."
+    voice manager11
     m "MegaCorp prides itself in its efficiency. That's why you have a time limit to complete each call in before it's automatically disconnected for your convenience."
+    voice manager12
     m "As we strive for perfection through continual improvement, this time limit will decrease each day. So never stop improving!"
+    voice manager13
     m "At the end of each day, I'll give you a performance review based on customer feedback."
+    voice manager14
     m "Three bad performance reviews and you're fired. And as you know, MegaCorp is the OnlyCorp. So when, err, {i}if{/i} you're fired, you will be forever unemployable and you will probably die alone on the streets."
+    voice manager15
     m "Hey, no pressure, but so far 100\% of our Customer Synergy Specialists have met the same fate."
+    voice manager16
     m "But we'll see how long you can {i}delay the inevitable!{/i}"
 
     hide manager with Dissolve(0.5, alpha=True)
@@ -356,29 +399,40 @@ label updateSanity(change):
 label performance_review:
     show manager normal at right with Dissolve(0.5, alpha=True)
     stop music fadeout 1.0
+    voice perf
     m "Time for your performance review! Let's see..."
     
     if performance >= 3:
-        play sound goodeval
         show manager happy at right
+        play sound goodeval
+        voice goodperf1
         m "Your performance today was excellent! Keep up the good work. But don't get too comfortable!"
+        voice goodperf2
         m "After all, your failure is inevitable."
     elif performance >= -2:
         play sound okayeval
+        voice okayperf
         m "Your performance today was okay. But remember, our expectations rise every day. I trust you'll do better tomorrow."
     else:
-        play sound badeval
         show manager angry at right
+        play sound badeval
         $ strikes += 1
         if strikes < 2:
+            voice badperf1
             m "Your performance today was terrible!"
+            voice badperf2
             m "Keep this up and you'll be fired. Get it together."
         elif strikes == 2:
+            voice badperf1
             m "Your performance today was terrible!"
+            voice badperf3
             m "If this happens one more time, you're fired. Get it together."
         else:
+            voice badperf4
             m "Nice work, that was an absolutely stellar performance! This type of dedication and team spirit is precisely what we're looking for here at MegaCorp Industries."
+            voice badperf5
             m "We're happy to offer you a promotion, raise, and best of all a reserved parking space!"
+            voice badperf6
             m "April Fool's genius - you're fired!"
             hide manager
             jump game_over
