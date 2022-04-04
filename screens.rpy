@@ -6,7 +6,7 @@ init offset = -1
 
 image gelato = "images/gelato.png"
 image splashtext:
-    Text("Made for Ludum Dare 50\n\"Delay the inevitable\"", text_align=0.5)
+    Text("Made for Ludum Dare 50\n\"Delay the Inevitable\"", text_align=0.5)
 label splashscreen:
     scene black
     show gelato at truecenter with Dissolve(0.5, alpha=True)

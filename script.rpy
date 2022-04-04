@@ -21,9 +21,9 @@ define calls = {
         "nouns": ["router", "internet", "computer", "time machine"]
     },
     "explorer": {
-        "message": "Where's Internet Explorer?",
+        "message": "Where's Internet Expeller?",
         "verbs": ["install", "the"],
-        "nouns": ["aol", "chrome", "garbage", "start menu"]
+        "nouns": ["aol", "chrome", "garbage", "fart menu"]
     },
     "email": {
         "message": "I can't get my email.",

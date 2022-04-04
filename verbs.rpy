@@ -70,13 +70,22 @@ label verb_install:
         $ performance += 1
         jump call_loop
     elif noun == "aol":
-        p "Sorry, we no longer support Internet Explorer. I'm going to need you to install AOL."
-        c "Oh, great! I've always wanted an AOL. Thank you!"
-        $ performance += 1
+        p "Why would you want to use that?"
+        c "To view wholesome pictures on the world wide web."
+        p "Ah yes, well there's another tool that is much better."
+        c "You don't say. Please, enlighten me."
+        p "It's called AOL, short for America's Open Legs."
+        c "Sounds like a warm invitation."
+        p "You're in for a big surprise."
+        $ performance -= 1
         jump call_loop
     elif noun == "chrome":
-        p "Sorry, we no longer support Internet Explorer. I'm going to need you to install Gargle Chrome."
-        c "And let Gargle spy on me? I don't think so. I'm downloading Mozzarella."
+        p "You're actually better off installing Gargle Chrome."
+        c "Oh really, sounds complicated."
+        p "Don't worry, we only have to change every default file type from Internet Expeller to Gargle Chrome."
+        c "Sounds like fun."
+        p "You have no idea."
+        "Five hours later Chrome is still not set as default and the customer hangs up."
         $ performance -= 1
         jump call_loop
     jump bad_answer
@@ -89,13 +98,13 @@ label verb_the:
         c "Thanks for your help!"
         $ performance += 1
         jump call_loop
-    elif noun == "start menu":
-        p "It's in your start menu."
-        c "Oh no. You're right."
-        p "What?"
-        c "I thought I had escaped."
-        c "NOOOOOOOOOOOOOOOOOOOOOOO"
-        $ performance -= 1
+    elif noun == "fart menu":
+        p "You should find a shortcut to it on the Fart Menu."
+        c "Where is the fart menu?"
+        p "The lower left-hand side of your screen. Unless you're on Wingdows 11, it's awkwardly in the middle."
+        c "Unfortunately I upgraded, I heard this is the best way to experience the Internet."
+        p "I bet you did."
+        $ performance += 1
         jump call_loop
     jump bad_answer
 
@@ -221,6 +230,89 @@ label verb_destroy:
         jump call_loop
     jump bad_answer
 
+label verb_reinstall:
+    if noun == "outlook":
+        p "It could be a problem with outlook."
+        c "Where should I be looking?"
+        p "At your computer."
+        c "Ok, now what?"
+        p "Buckle up buttercup, it's going to be a rough ride."
+        c "Oh gracious me, what do we do now?"
+        p "We must perform a complete reinstall."
+        c "I've never done that before."
+        p "Me neither, first time for everything!"			
+        "Five escalations and four hours later they are back to outlooking."
+        $ performance += 1
+        jump call_loop
+    jump bad_answer
+
+label verb_ask:
+    if noun == "post office":
+        p "Have you tried asking the post office?"
+        c "They still carry email these days?"
+        p "Well, mostly just the postmaster - especially when mail goes missing!"
+        c "Perfect, I'll give them a call."
+        p "Good luck!"
+        $ performance -= 1
+        jump call_loop
+    jump bad_answer
+
+label verb_look:
+    if noun == "harder":
+        p "Perhaps you should expand your search."
+        c "How can I do that?"
+        p "Well, where have you looked so far?"
+        c "Under the bed, in the closet, inbetween the sofa cushions."
+        p "Try looking inside the internet."
+        c "Inside the internet, how do I get there?"
+        p "Just rent a VHS copy of the Matrix and you'll have everything you need."
+        $ performance -= 1
+        jump call_loop
+    jump bad_answer
+
+label verb_unplug:
+    if noun == "keyboard":
+        p "Have you tried unplugging it and plugging it back in again?"
+        c "How can I do that?"
+        p "Follow the cable from your keyboard to the back of your computer."
+        c "There's no cable."
+        p "Oh, its a wireless keyboard?"
+        c "Yes."
+        p "In that case, check the batteries."
+        c "There's no batteries."
+        p "Oh, it has an internal battery?"
+        c "Yes."
+        p "In that case, check that the dongle."
+        c "There's no dongle."
+        p "Oh, it's a bluetooth keyboard?"
+        c "Yes."
+        p "In that case, throw it in the garbage."
+        c "Thanks for the tip."
+        $ performance += 1
+        jump call_loop
+    jump bad_answer
+
+label verb_change:
+    if noun == "hard drive":
+        p "Perhaps it is an issue with your hard drive."
+        c "My hard what?"
+        p "Drive, it's part of the RAID - Redundant Array of Inexpensive Disks."
+        c "Great, what should we do?"
+        p "It's going to be a long night..."
+        $ performance -= 1
+        jump call_loop
+    elif noun == "password":
+        p "We're going to have to change your password."
+        c "Okay, what do I do?"
+        p "First, click reset password."
+        c "Done."
+        p "Perfect, now type a new password."
+        c "Any special requirements?"
+        p "Just one - use only asterisks. Have a nice day!"
+        $ performance -= 1
+        jump call_loop
+    jump bad_answer
+
 label bad_answer:
     c "If you say so..."
     "."
@@ -228,7 +320,7 @@ label bad_answer:
     "..."
     ".."
     "."
-    $ performance -= 0.2
     c "It didn't work."
     p "Okay, let's try something else."
+    $ performance -= 0.2
     jump get_response
