@@ -235,8 +235,8 @@ label continue_intro:
     m "Hey, no pressure, but so far 100\% of our Customer Synergy Specialists have met the same fate."
     m "But we'll see how long you can {i}delay the inevitable!{/i}"
 
-    hide manager
-    play music music
+    hide manager with Dissolve(0.5, alpha=True)
+    play music music fadein 2.0
     jump call_loop
 
 label call_loop:
