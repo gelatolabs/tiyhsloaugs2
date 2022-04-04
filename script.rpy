@@ -217,7 +217,6 @@ label call_loop:
     jump get_response
 
 label get_response:
-    
     show expression words as words  
     python:
         input_value = ""
@@ -226,10 +225,14 @@ label get_response:
         verb = response.partition(' ')[0]
         noun = response.partition(' ')[2]
      
-    if renpy.has_label("verb_" + verb) and verb in calls[current_call]["verbs"] and noun in calls[current_call]["nouns"] or verb in global_verbs:
-        $ renpy.jump("verb_" + verb)
+    if verb in calls[current_call]["verbs"] and noun in calls[current_call]["nouns"] or verb in global_verbs:
+        if renpy.has_label("verb_" + verb):
+            $ renpy.jump("verb_" + verb)
+        else:
+            jump bad_answer
     else:
-        jump bad_answer
+        c "Huh, what are you saying? I couldn't understand you."
+        jump get_response
 
 label updateSanity(change):
     $ sanity += change
