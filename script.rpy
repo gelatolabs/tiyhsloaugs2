@@ -48,8 +48,8 @@ define audio.badperf4 = "audio/voices/badperf4.mp3"
 define audio.badperf5 = "audio/voices/badperf5.mp3"
 define audio.badperf6 = "audio/voices/badperf6.mp3"
 
-define global_verbs = ["hang", "refer", "blame", "insult"]
-define global_nouns = ["up", "sales", "customer"]
+define global_verbs = ["refer", "insult"]
+define global_nouns = ["sales", "customer"]
 define calls = {
     "imploded": {
         "message": "Help, my computer imploded??",
