@@ -385,7 +385,7 @@ label performance_review:
 
     $ performance = 0
     hide manager fadeout 1.0
-    $ updateSanity(0) # hacky way of restarting the correct music track
+    call updateSanity(0) # hacky way of restarting the correct music track
     jump call_loop
 
 label game_over:
