@@ -181,8 +181,11 @@ label call_loop:
     if call_count % 9 == 8:
         jump performance_review
 
+    window hide
+    $ renpy.pause(renpy.random.randint(2,10))
     show text "{size=72}*ring ring*{/size}" at text_shake
     "..."
+    window show
     hide text
 
     $ countdown_range = 130 - (call_count // 9 + 1) * 10
