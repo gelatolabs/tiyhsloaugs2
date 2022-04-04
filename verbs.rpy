@@ -33,12 +33,12 @@ label verb_call:
     if noun == "fbi":
         p "Could you please hold for a moment? I forgot to turn off my refrigerator."
         c "Sure thing."
-        "*you put the customer on hold and call the FBI*"
+        "*You put the customer on hold and call the FBI*"
         p "Hello, is this FBI?"
         "FBI" "Special agent Halfbaked speaking, state your issue civilian."
         p "I'd like to report an act of piracy."
-        "FBI" "Are you kidding me, call the coastguard you numbskull!"
-        "The FBI Agent hangs up. Oh well, it was worth a try."
+        "FBI" "Are you kidding me, call the coast guard you numbskull!"
+        "*The FBI Agent hangs up* Oh well, it was worth a try."
         p "We appear to be having technical difficulties at this moment, please call again later."
         $ performance -= 1
         jump call_loop
@@ -60,6 +60,14 @@ label verb_install:
         c "What the hell is this? Give me my Wingdows back!"
         p "Sorry, this is a one-way install."
         $ performance -= 1
+        jump call_loop
+    if noun == "wingdows":
+        p "You're going to need to purchase Wingdows."
+        c "How much will that cost?"
+        p "You'll have to consult Master B Ates. Legend has it he founded the company with one hand."
+        c "Perfect, thank you - what is his number."
+        p "1-900-WIN-BLOW. Thanks and have a prosperous future with a happy ending."
+        $ performance += 1
         jump call_loop
     elif noun == "aol":
         p "Sorry, we no longer support Internet Explorer. I'm going to need you to install AOL."
@@ -100,37 +108,37 @@ label verb_reboot:
         p "Just look for a little box with cables going to the wall."
         c "Ok found it, now what do I do?"
         p "Unplug it."
-        c "Everything just went dark, I'm scared."
+        c "Everything just went dark! I'm scared."
         p "Don't panic, you just unplugged the lamp. Plug it back in."
         c "There we go, found it!"
-        p "Great, now wait for 30 seconds then plug it back in."
+        p "Great, now wait for 30 seconds and plug it back in."
         "."
         ".."
         "..."
         ".."
         "."
-        c "Ok I'm back!"
+        c "Okay, I'm back!"
         p "What the heck took you so long??"
         c "Just like you said, wait 30 minutes..."
         p "Wow, does your internet work now??"
-        c "It's blazing fast now, I've been streaming my favourite show Love at first bite for the past 30 minutes.  Thank you!!"
+        c "It's blazing fast now, I've been streaming my favourite show {i}Love at First Bite{/i} for the past 30 minutes. Thank you!!"
         $ performance += 1
         jump call_loop
     elif noun == "mainframe":
         p "Could be a frozen Wingdows Update, let's reboot the mainframe."
-        c "There's no pictures near the computer."
+        c "I don't have any picture frames near my computer."
         p "No, the mainframe is another word for the computer."
-        c "Ohh I get it, so I have to reboot the computer?"
+        c "Ohh I get it, so I have to re-boot the computer?"
         p "Precisely."
         c "What size boots does it wear?"
-        p "Sighs, just press the power button twice."
-        c "Wow that did it, you are a genius."
+        p "*sigh* Just press the power button twice."
+        c "Wow, that did it! You are a genius."
         p "Have a good life."
         $ performance += 1
         jump call_loop
     elif noun == "time machine":
         p "Do you happen to have a hot tub in the vicinity?"
-        c "Actually, yes we have one in the back yard."
+        c "Actually yes, we have one in the backyard."
         p "Does it happen to be equipped with a time machine?"
         c "Funny you should mention that, we just had one installed last week!"
         p "Perfect, I'm going to need you to unplug it, wait for 30 seconds and then plug it back in."
@@ -152,7 +160,7 @@ label verb_lower:
 
 label verb_replace:
     if noun == "cable":
-        p "Most likely mice chewing on the cables again.  Try replacing your cable."
+        p "Most likely mice chewing on the cables again. Try replacing your cable."
         c "What does TV have to do with this?"
         p "I meant the cable from the computer to the wall."
         c "I've seen that show before, which episode?"
@@ -167,7 +175,7 @@ label verb_go:
         c "But it's raining out there."
         p "Bring an umbrella."
         c "But I don't have an umbrella."
-        p "I hear Uber feats delivers them now."
+        p "I hear Uber Feats delivers them now."
         c "I'll get right on that."
         p "Keep me posted."
         $ performance -= 1
@@ -180,17 +188,17 @@ label verb_purchase:
         c "How much will that cost?"
         p "You'll have to consult Master B Ates. Legend has it he founded the company with one hand."
         c "Perfect, thank you - what is his number."
-        p "1-900-WIN-BLOW.  Thanks and have a prosperous future with a happy ending."
+        p "1-900-WIN-BLOW. Thanks and have a prosperous future with a happy ending."
         $ performance += 1
         jump call_loop
     elif noun == "gelato":
         p "This is an easy one, you can resolve this issue by donating 5 bitcoin to Gelato labs."
         c "What's a bitcoin?"
-        p "It's just a bit of a coin, not even a full one so it won't break the bank."
+        p "It's just a bit of a coin, not even a full one, so it won't break the bank."
         c "Hmm sounds like bitcoin won't break anybody's bank, that's for sure!"
         p "Once your transfer is complete you will receive an email with your activation code."
         c "I'll get right on that."
-        p "Thank you for your support.  We aim to satisfy all of our customers every day in every way."
+        p "Thank you for your support. We aim to satisfy all of our customers every day in every way."
         $ performance -= 1
         jump call_loop
     jump bad_answer
@@ -198,9 +206,9 @@ label verb_purchase:
 label verb_destroy:
     if noun == "router":
         p "Let's try replacing your router."
-        c "Ok, sounds like a plan."
+        c "Okay, sounds like a plan."
         p "Unplug your router."
-        c "Ok, done."
+        c "Okay, done."
         p "Now get some protective eyeware."
         c "Ready and equipped good sir."
         p "Next - arm yourself with a hammer."
