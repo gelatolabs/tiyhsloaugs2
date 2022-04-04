@@ -354,7 +354,8 @@ label updateSanity(change):
     return
 
 label performance_review:
-    show manager normal at right
+    show manager normal at right with Dissolve(0.5, alpha=True)
+    stop music fadeout 1.0
     m "Time for your performance review! Let's see..."
     
     if performance >= 3:
@@ -383,7 +384,8 @@ label performance_review:
             jump game_over
 
     $ performance = 0
-    hide manager
+    hide manager fadeout 1.0
+    call updateSanity(0) # hacky way of restarting the correct music track
     jump call_loop
 
 label game_over:
