@@ -79,7 +79,7 @@ define calls = {
     },
     "mouse": {
         "message": "My mouse doesn't work.",
-        "verbs": ["enable", "plug", "install", "restart"],
+        "verbs": ["enable", "plug", "install", "reboot"],
         "nouns": ["mouse keys", "in", "adobe", "computer", "modem"]
     }
 }

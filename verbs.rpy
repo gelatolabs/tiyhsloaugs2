@@ -350,14 +350,45 @@ label verb_clear:
         jump call_loop
     jump bad_answer
 
+label verb_plug:
+    if noun == "in":
+        p "Have you tried plugging in your mouse?"
+        c "Do you think I'm dumb? Of course my mouse is plugged in! I want to speak to your m--"
+        p "I'm sorry sir, let's try one more thing. Can you try unplugging the purple plug from the back of your computer, and putting it back in?"
+        c "Fine."
+        "..."
+        c "Oh hey, it worked! Told you my mouse was plugged in."
+        call updatePerformance(1)
+        call updateSanity(-0.2)
+        jump call_loop
+    jump bad_answer
+
+label verb_enable:
+    if noun == "mouse keys":
+        p "You need to enable a feature called Mouse Keys on your computer."
+        c "Keys? Why do I need to put my keys in my mouse?"
+        p "Your mouse has an ignition key slot just like your car. Flip your mouse over, and find the small round slot."
+        c "Okay..."
+        p "Put your key in there. Don't be afraid to put some force into it, it may be a tight fit on the first time."
+        "*crunch*"
+        call updatePerformance(-1)
+        jump call_loop
+    jump bad_answer
+
 label bad_answer:
-    c "If you say so..."
-    "."
-    ".."
-    "..."
-    ".."
-    "."
-    c "It didn't work."
+    $ badAns = renpy.random.randint(1,3)
+    if badAns == 1:
+        c "If you say so..."
+        "."
+        ".."
+        "..."
+        ".."
+        "."
+        c "It didn't work."
+    elif badAns == 2:
+        c "What are you talking about? Just fix my problem already!"
+    elif badAns == 3:
+        c "Stop wasting my time. I have things to do!"
     p "Okay, let's try something else."
     call updatePerformance(-0.2)
     jump get_response
