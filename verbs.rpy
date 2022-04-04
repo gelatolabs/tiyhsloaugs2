@@ -109,7 +109,7 @@ label verb_the:
     jump bad_answer
 
 label verb_reboot:
-    if noun == "router":
+    if noun == "router" and current_call == "slownet":
         p "Have you rebooted your router lately?"
         c "What is a router?"
         p "It's a little box that empowers you with the ability to explore the world wide web."
@@ -133,7 +133,7 @@ label verb_reboot:
         c "It's blazing fast now, I've been streaming my favourite show {i}Love at First Bite{/i} for the past 30 minutes. Thank you!!"
         $ performance += 1
         jump call_loop
-    elif noun == "mainframe":
+    elif noun == "mainframe" and current_call == "imploded":
         p "Could be a frozen Wingdows Update, let's reboot the mainframe."
         c "I don't have any picture frames near my computer."
         p "No, the mainframe is another word for the computer."
@@ -156,6 +156,17 @@ label verb_reboot:
         c "I'll try that, thanks for the tip!"
         p "May the forth be with you."
         $ performance -= 1
+        jump call_loop
+    elif noun == "computer":
+        p "I think it's best if we proceed with a power cycle."
+        c "But I don't own a bike."
+        p "That's okay, it's just the name of a process."
+        c "Like a spin cycle?"
+        p "Exactly, some rogue processes might just need to be cleaned."
+        c "But how can I fit my pc in the washing machine?"
+        p "Just press the power button, wait for a minute and then press it again."
+        c "Sure thing boss!"
+        $ performance += 1
         jump call_loop
     jump bad_answer
 
@@ -309,6 +320,32 @@ label verb_change:
         p "Perfect, now type a new password."
         c "Any special requirements?"
         p "Just one - use only asterisks. Have a nice day!"
+        $ performance -= 1
+        jump call_loop
+    jump bad_answer
+
+label verb_microwave:
+    if noun == "computer":
+        p "Maybe it's an issue with the cooling system, it might be frozen."
+        c "Wow, what can we do?"
+        p "Let's try microwaving it."
+        c "Are you sure, what setting should I use?"
+        p "Definitely popcorn."
+        c "Here goes nothing!"
+        "Audible snap crackle pops can be heard in the background before the connection is lost."
+        $ performance -= 1
+        jump call_loop
+    jump bad_answer
+
+label verb_clear:
+    if noun == "cache":
+        p "The memory buffer could be full, let's try clearing the cache."
+        c "How much cash do you need?"
+        p "You can make a transfer of $1,000 at the following link."
+        p "{a=https://ko-fi.com/gelatolabs}https://ko-fi.com/gelatolabs{/a}"
+        c "Done."
+        p "Perfect, now I will wait until the payment is verified and get back to you in 3-5 business days."
+        c "Thanks!"
         $ performance -= 1
         jump call_loop
     jump bad_answer
