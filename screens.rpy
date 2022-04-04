@@ -303,10 +303,10 @@ screen stats():
 
     text "Day " + str(call_count // 9 + 1) + ", " + str(call_count % 9 + 9).zfill(2) + ":00" xalign 0.5 ypos 98 size 64
 
-    bar value sanity range 5 pos (40, 80) xsize 500
+    bar value sanity * 100 range 500 pos (40, 80) xsize 500
     text "Sanity" pos (51, 87) size 24
 
-    bar value performance + 3 range 6 pos (40, 140) xsize 500
+    bar value (performance + 3) * 100 range 600 pos (40, 140) xsize 500
     text "Performance" pos (51, 147) size 24
 
     if strikes > 0:
