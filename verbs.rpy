@@ -240,7 +240,7 @@ label verb_reinstall:
         c "Oh gracious me, what do we do now?"
         p "We must perform a complete reinstall."
         c "I've never done that before."
-        p "Me neither, first time for everything!"			
+        p "Me neither, first time for everything!"
         "Five escalations and four hours later they are back to outlooking."
         $ performance += 1
         jump call_loop
