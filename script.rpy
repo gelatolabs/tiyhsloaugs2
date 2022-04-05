@@ -332,7 +332,7 @@ label call_loop:
     $ countdown = countdown_range
     show screen countdown
 
-    call updateSanity(-0.1)
+    call updateSanity(-0.2)
     if sanity >= 3:
         p "Thank you for calling MegaCorp, how can I help you today?"
     else:
