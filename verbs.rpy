@@ -187,13 +187,13 @@ label verb_reboot:
         jump call_loop
     elif noun == "computer" && current_call == "broken":
         p "I think it's best if we proceed with a power cycle."
-        c "But I don't own a bike."
+        c "BUT I DON'T OWN A BIKE."
         p "That's okay, it's just the name of a process."
-        c "Like a spin cycle?"
+        c "LIKE A SPIN CYCLE?"
         p "Exactly, some rogue processes might just need to be cleaned."
-        c "But how can I fit my pc in the washing machine?"
+        c "BUT HOW CAN I FIT MY PC IN THE WASHING MACHINE?"
         p "Just press the power button, wait for a minute and then press it again."
-        c "Sure thing boss!"
+        c "SURE THING BOSS!"
         call updatePerformance(1)
         jump call_loop
     elif noun == "computer" && current_call == "mouse":
@@ -201,6 +201,24 @@ label verb_reboot:
         c "The last person told me to do that already. It didn't do anything!"
         p "Please try it again anyway."
         c "No."
+    elif noun == "computer" && current_call == "password":
+        p "Have you tried turning your computer off and on again?"
+        c "No."
+        p "Can you?"
+        c "Well I suppose, if you tell me how."
+        p "Press the power button."
+        c "You broke it! It's not turning on again!"
+        p "Press it again."
+        c "Oh, there it is."
+        p "Now try typing your password."
+        c "Nope, still asterisks!"
+        p "Darn. Well, that's all I've got."
+        c "Can you escalate my ticket?"
+        p "Nope."
+        c "Why not?"
+        p "I don't know how."
+        c "Oh."
+        p "Bye!"
         call updatePerformance(-1)
         jump call_loop
     elif noun == "yourself" and current_call == "modem":
@@ -234,7 +252,22 @@ label verb_reboot:
 
 label verb_lower:
     if noun == "standards":
-        p "Have you tried lowering your standards?"
+        p "240p you say?  That's amazing, how did you manage that?"
+        c "Shouldn't it be a higher number?"
+        p "No no no, that's 240x better than single p format!"
+        c "Wow, when you put it that way I guess I'm lucky!"
+        p "You got that right, you just need to lower your standards."
+        c "I suppose the picture isn't all that bad."
+        p "Use your imagination to see past the pixels."
+        call updatePerformance(1)
+        jump call_loop
+    jump bad_answer
+
+label verb_raise:
+    if noun == "standards":
+        p "Try raising your standards."
+        c "Wouldn't that just make this worse?"
+        p "Uh... I mean, lower them."
         c "I don't think they go low enough to put up with you."
         call updatePerformance(-1)
         jump call_loop
@@ -248,6 +281,26 @@ label verb_replace:
         c "I've seen that show before, which episode?"
         p "The one that ends with me hanging up."
         call updatePerformance(-1)
+        jump call_loop
+    elif noun == "computer":
+        p "Well... I don't think there's much we can do in that case but replace it."
+        c "Can't you un-implode it?"
+        p "I'm a Customer Synergy Specialist, not a magician."
+        c "Well, alright. But I don't think you sell any computers as good as mine."
+        p "We're the only computer company on the planet. Surely we do."
+        c "My computer has 512 kilobytes of RAM."
+        p "We can do, like, 128 gigabytes."
+        c "But 512 is way more than 128!"
+        p "...please just trust me on this one."
+        c "Can it run Minesweeper?"
+        p "Yes."
+        c "Can it run Solitaire?"
+        p "Yes."
+        c "Can it run Netscape?"
+        p "No."
+        c "Hmm... I guess 2 for 3 ain't bad. I'll take it."
+        p "Great. I'll transfer you to our sales department."
+        call updatePerformance(1)
         jump call_loop
     jump bad_answer
 
@@ -299,6 +352,25 @@ label verb_destroy:
         c "Router smashed."
         p "Excellent, order a new one and call me when it arrives."
         c "Wait, I thought we were fixing this one!?!?"
+        call updatePerformance(-1)
+        jump call_loop
+    elif noun == "time machine":
+        p "Do you have a time machine?"
+        c "As a matter of fact I do. What does that have to do with anything?"
+        p "Well it could be causing interference with your router and slowing it down."
+        c "Huh, I guess that makes sense. What can I do about it?"
+        p "You're going to have to destroy your time machine."
+        c "I would sure miss it. It was a gift from my great-great-great-great-great grandson."
+        p "Well, do you want to fix your Internet or not?"
+        c "Yeah, the time machine is cool but I don't know what I'd do without my Bookface. I'll go destroy it."
+        "."
+        ".."
+        "..."
+        ".."
+        "."
+        c "I destroyed it, but the Internet is still slow!"
+        p "Oh. Well, it was worth a try."
+        c "No it wasn't! What have you done??"
         call updatePerformance(-1)
         jump call_loop
     jump bad_answer
@@ -363,6 +435,31 @@ label verb_unplug:
         c "Thanks for the tip."
         call updatePerformance(1)
         jump call_loop
+    elif noun == "computer":
+        p "Try unplugging your computer."
+        c "Okay."
+        p "Now try typing your password."
+        c "Okay."
+        p "Still asterisks?"
+        c "No."
+        p "You're welcome!"
+        c "But my computer is off. I don't see anything."
+        p "You're welcome!!!"
+        call updatePerformance(-1)
+        jump call_loop
+    elif noun == "hard drive":
+        p "Try unplugging your hard drive."
+        c "How is that supposed to help?"
+        p "If you want to fix your password, you're going to need to trust me."
+        c "If you say so..."
+        c "It says something about corruption?"
+        p "Did you turn your computer off before you unplugged your hard drive?"
+        c "No. Should I have?"
+        p "Yes."
+        c "Now what?"
+        p "Please don't tell my manager."
+        call updatePerformance(-1)
+        jump call_loop
     jump bad_answer
 
 label verb_change:
@@ -395,6 +492,21 @@ label verb_change:
         p "Excellent choice. Have a nice day."
         call updatePerformance(1)
         jump call_loop
+    elif noun == "keyboard":
+        p "Do you have another keyboard you can try?"
+        c "Yes, I do."
+        p "Okay, see if it works."
+        c "Now it doesn't type anything."
+        p "Did you plug it in?"
+        c "Plug what in?"
+        p "The keyboard. Into your computer."
+        c "Oh, right."
+        c "Now it types, but still just asterisks!"
+        p "Hmm... I guess it must be a software problem."
+        c "Okay, can you fix it?"
+        p "Nope, sorry. I'm more of a hardware person. Good luck with that!"
+        call updatePerformance(-1)
+        jump call_loop
     jump bad_answer
 
 label verb_microwave:
@@ -413,12 +525,12 @@ label verb_microwave:
 label verb_clear:
     if noun == "cache":
         p "The memory buffer could be full, let's try clearing the cache."
-        c "How much cash do you need?"
+        c "HOW MUCH CASH DO YOU NEED?"
         p "You can make a transfer of $1,000 at the following link."
         p "{a=https://ko-fi.com/gelatolabs}https://ko-fi.com/gelatolabs{/a}"
-        c "Done."
+        c "DONE."
         p "Perfect, now I will wait until the payment is verified and get back to you in 3-5 business days."
-        c "Thanks!"
+        c "THANKS!"
         call updatePerformance(-1)
         jump call_loop
     jump bad_answer
@@ -464,6 +576,49 @@ label verb_defrag:
         call updatePerformance(-1)
         call updateSanity(-0.3)
         jump call_loop
+        
+label verb_try:
+    if noun == "again":
+        p "Try again."
+        c "NO."
+        p "Why not?"
+        c "NO."
+        p "No what?"
+        c "NO."
+        p "What are you trying to do?"
+        c "NO."
+        p "Yes."
+        c "NO."
+        p "YES."
+        c "NO."
+        p "Good bye."
+        call updatePerformance(-1)
+        jump call_loop
+    jump bad_answer
+
+label verb_return:
+    if noun == "movie":
+        p "If you are not happy with the picture you can always initiate a return."
+        c "Let's go ahead with that option."
+        p "A return shipping label will be mailed to you."
+        c "It's a digital movie so how can I ship it back?"
+        p "Print out the code, and securely package it."
+        c "Thank you!"
+        call updatePerformance(1)
+        jump call_loop
+    jump bad_answer
+
+label verb_wear:
+    if noun == "glasses":
+        p "Do you happen to wear glasses?"
+        c "As a matter of fact, I do."
+        p "Try putting them on."
+        c "Never thought of that, wow this is much better!"
+        p "If you would like to upgrade to 3D, \"borrow\" a pair of 3D glasses from the movie theatre."
+        p "Thanks for the tip!"
+        call updatePerformance(1)
+        jump call_loop
+    jump bad_answer
 
 label bad_answer:
     $ badAns = renpy.random.randint(1,3)
