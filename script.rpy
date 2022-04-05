@@ -110,6 +110,11 @@ define calls = {
         "message": "My mouse doesn't work.",
         "verbs": ["enable", "plug", "reboot"],
         "nouns": ["mouse keys", "in", "computer", "modem"]
+    },
+    "printer": {
+        "message": "My printer won't print.",
+        "verbs": ["install", "replace", "enable"],
+        "nouns": ["drivers", "ink", "wifi"]
     }
 }
 
@@ -327,13 +332,21 @@ label call_loop:
         words = SpriteManager(update=wordMove)
         wordSprites = []
         wordDirection = []
-        for verb in calls[current_call]["verbs"] + global_verbs:
+        for verb in calls[current_call]["verbs"]:
             renpy.random.seed(verb)
             wordSprites.append(words.create(Text(verb, size=64, color="#09f", outlines=[ (absolute(1), "#000", absolute(0), absolute(0)) ])))
             wordDirection.append(renpy.random.choice(["L", "R", "U", "D", "UL", "UR", "DL", "DR"]))
-        for noun in calls[current_call]["nouns"] + global_nouns:
+        for verb in global_verbs:
+            renpy.random.seed(verb)
+            wordSprites.append(words.create(Text(verb, size=64, color="#036", outlines=[ (absolute(1), "#000", absolute(0), absolute(0)) ])))
+            wordDirection.append(renpy.random.choice(["L", "R", "U", "D", "UL", "UR", "DL", "DR"]))
+        for noun in calls[current_call]["nouns"]:
             renpy.random.seed(noun)
             wordSprites.append(words.create(Text(noun, size=64, color="#c00", outlines=[ (absolute(1), "#000", absolute(0), absolute(0)) ])))
+            wordDirection.append(renpy.random.choice(["L", "R", "U", "D", "UL", "UR", "DL", "DR"]))
+        for noun in global_nouns:
+            renpy.random.seed(noun)
+            wordSprites.append(words.create(Text(noun, size=64, color="#900", outlines=[ (absolute(1), "#000", absolute(0), absolute(0)) ])))
             wordDirection.append(renpy.random.choice(["L", "R", "U", "D", "UL", "UR", "DL", "DR"]))
         for i in wordSprites:
             i.x = renpy.random.randint(300, 1620)
