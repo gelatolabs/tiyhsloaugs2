@@ -37,7 +37,7 @@ The Gelato Labs "G-Team" for LD50:
 Kyle Farwell (kfarwell), Matthew Petry (fireTwoOneNine)
 
 {u}Art:{/u}\n
-Fuugul, HiroKuncaws, RottenCustard
+Fuugul, Hirokun, Maly
 
 {u}Music and Sound:{/u}\n
 Alice Dalton (AliceVibes)
