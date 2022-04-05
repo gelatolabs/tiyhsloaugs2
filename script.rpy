@@ -302,6 +302,7 @@ label continue_intro:
 
 label call_loop:
     hide words with Dissolve(0.5, alpha=True)
+    hide screen countdown with Dissolve(0.5, alpha=True)
     python:
         try:
             del words
