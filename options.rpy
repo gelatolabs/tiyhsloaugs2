@@ -33,15 +33,20 @@ define gui.about = _p("""A {a=https://gelatolabs.xyz/}Gelato Labs{/a} production
 
 The Gelato Labs "G-Team" for LD50:
 
-{u}Programming:{/u}
+{u}Programming:{/u}\n
+Kyle Farwell (kfarwell), Matthew Petry (fireTwoOneNine)
 
-{u}Art:{/u}
+{u}Art:{/u}\n
+Fuugul, HiroKuncaws, RottenCustard
 
-{u}Music and Sound:{/u}
+{u}Music and Sound:{/u}\n
+Alice Dalton (AliceVibes)
 
-{u}Voice Acting:{/u}
+{u}Voice Acting:{/u}\n
+Jared Kelly (J A R F), Alice Dalton (AliceVibes), Matthew Petry (fireTwoOneNine)
 
-{u}Writing:{/u}
+{u}Writing:{/u}\n
+Ryan Refcio, Matthew Petry (fireTwoOneNine), Kyle Farwell (kfarwell)
 """)
 
 
