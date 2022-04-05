@@ -1,11 +1,6 @@
-label verb_hang:
-    if noun == "up":
-        call updatePerformance(-1)
-        jump call_loop
-    jump bad_answer
-
 label verb_refer:
     if noun == "sales":        
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Let me transfer you to our sales department."        
         c "Wait-"
         call updatePerformance(1)
@@ -13,16 +8,9 @@ label verb_refer:
         jump call_loop
     jump bad_answer
 
-label verb_blame:
-    if noun == "user" or noun == "caller" or noun =="customer":       
-        p "Sorry, it seems your problem exists between the keyboard and chair. We don't solve that kind of problem here."       
-        c "Huh?"
-        call updatePerformance(-1)
-        jump call_loop
-    jump bad_answer
-
 label verb_insult:
     if noun == "user" or noun == "caller" or noun =="customer":       
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "You smell."        
         c "Excuse me?"
         call updatePerformance(-1)
@@ -31,6 +19,7 @@ label verb_insult:
 
 label verb_call:
     if noun == "fbi":        
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Could you please hold for a moment? I forgot to turn off my refrigerator."        
         c "Sure thing."
         "*You put the customer on hold and call the FBI*"        
@@ -46,6 +35,7 @@ label verb_call:
 
 label verb_install:
     if noun == "gelato":       
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Install Gelato."       
         c "What's that?"       
         p "The Gelato System is a free operating system from Gelato Labs."       
@@ -62,6 +52,7 @@ label verb_install:
         call updatePerformance(-1)
         jump call_loop
     if noun == "wingdows":       
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "You're going to need to purchase Wingdows."       
         c "How much will that cost?"       
         p "You'll have to consult Master B Ates. Legend has it he founded the company with one hand."       
@@ -71,6 +62,7 @@ label verb_install:
         call updatePerformance(1)
         jump call_loop
     elif noun == "aol":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Why would you want to use that?"
         c "To view wholesome pictures on the world wide web."
         p "Well, we no longer support Internet Expeller, but we have another tool that is much better."
@@ -81,6 +73,7 @@ label verb_install:
         call updatePerformance(1)
         jump call_loop
     elif noun == "chrome":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "You're actually better off installing Gargle Chrome."
         c "Oh really, sounds complicated."
         p "Don't worry, we only have to change every default file type from Internet Expeller to Gargle Chrome."
@@ -90,6 +83,7 @@ label verb_install:
         call updatePerformance(-1)
         jump call_loop
     elif noun == "drivers":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Let's try installing the drivers."
         c "I thought these things had AI drivers."
         p "No, AI isn't quite there yet - we still need to do some things the old fashioned way."
@@ -101,6 +95,7 @@ label verb_install:
 
 label verb_the:
     if noun == "garbage":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "In the garbage, where it belongs."
         c "Well, okay. I guess I'll just stop using the Internet."
         p "That's probably for the best."
@@ -108,6 +103,7 @@ label verb_the:
         call updatePerformance(1)
         jump call_loop
     elif noun == "fart menu":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "You should find a shortcut to it on the Fart Menu."
         c "Where is the fart menu?"
         p "The lower left-hand side of your screen. Unless you're on Wingdows 11, it's awkwardly in the middle."
@@ -124,6 +120,7 @@ label verb_the:
 
 label verb_reboot:
     if noun == "router":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Have you rebooted your router lately?"
         c "What is a router?"
         p "It's a little box that empowers you with the ability to explore the world wide web."
@@ -148,6 +145,7 @@ label verb_reboot:
         call updatePerformance(1)
         jump call_loop
     elif noun == "modem" and current_call == "modem":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Well then, let's try rebooting it."
         c "What, you want me to kick it?"
         p "Don't do that. You just need to pull the power plug from it."
@@ -168,12 +166,14 @@ label verb_reboot:
         call updatePerformance(1)
         jump call_loop
     elif noun == "modem" and current_call == "mouse":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "You may need to reboot your internet modem."
         c "How does that fix my mouse?"
         p "It doesn't, but the quality assurance agents don't listen to call after a 'solution' is given."
         call updatePerformance(-1)
         jump call_loop
     elif noun == "time machine":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Do you happen to have a hot tub in the vicinity?"
         c "Actually yes, we have one in the backyard."
         p "Does it happen to be equipped with a time machine?"
@@ -186,6 +186,7 @@ label verb_reboot:
         call updatePerformance(-1)
         jump call_loop
     elif noun == "computer" and current_call == "imploded":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Have you tried turning it off and on again?"
         c "My computer?"
         p "Yes."
@@ -195,6 +196,7 @@ label verb_reboot:
         call updatePerformance(-1)
         jump call_loop
     elif noun == "computer" and current_call == "broken":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "I think it's best if we proceed with a power cycle."
         c "BUT I DON'T OWN A BIKE."
         p "That's okay, it's just the name of a process."
@@ -206,6 +208,7 @@ label verb_reboot:
         call updatePerformance(1)
         jump call_loop
     elif noun == "computer" and current_call == "mouse":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Try restarting your computer please."
         c "The last person told me to do that already. It didn't do anything!"
         p "Please try it again anyway."
@@ -213,6 +216,7 @@ label verb_reboot:
         call updatePerformance(-1)
         jump call_loop
     elif noun == "computer" and current_call == "password":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Have you tried turning your computer off and on again?"
         c "No."
         p "Can you?"
@@ -233,6 +237,7 @@ label verb_reboot:
         call updatePerformance(-1)
         jump call_loop
     elif noun == "yourself" and current_call == "modem":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "I think you need to reboot yourself."
         c "...What?"
         p "You heard me. You need to kick yourself in the ass with a boot."
@@ -240,12 +245,14 @@ label verb_reboot:
         call updatePerformance(-2)
         jump call_loop
     elif noun == "refrigerator":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Is your refrigerator running?"
         c "Probably, why?"
         p "Better go kick it to be sure."
         call updatePerformance(-1)
         jump call_loop
     elif noun == "cellphone":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Let's make sure it's not a problem with your phone."
         c "Ok, sure."
         p "Can you restart it now?"
@@ -254,6 +261,7 @@ label verb_reboot:
         call updatePerformance(-1)
         jump call_loop
     elif noun == "server":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "It's actually a problem with the website you're viewing. They haven't updated the hyperflux compression interchange layer they are using since 1997."
         c "Well what do I do? I need to see my cat pictures!"
         p "Go bug them about it, not me."
@@ -263,6 +271,7 @@ label verb_reboot:
 
 label verb_lower:
     if noun == "standards":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "240p you say?  That's amazing, how did you manage that?"
         c "Shouldn't it be a higher number?"
         p "No no no, that's 240x better than single p format!"
@@ -276,6 +285,7 @@ label verb_lower:
 
 label verb_raise:
     if noun == "standards":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Try raising your standards."
         c "Wouldn't that just make this worse?"
         p "Uh... I mean, lower them."
@@ -286,6 +296,7 @@ label verb_raise:
 
 label verb_replace:
     if noun == "cable":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Most likely mice chewing on the cables again. Try replacing your cable."
         c "What does TV have to do with this?"
         p "I meant the cable from the computer to the wall."
@@ -294,6 +305,7 @@ label verb_replace:
         call updatePerformance(-1)
         jump call_loop
     elif noun == "computer":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Well... I don't think there's much we can do in that case but replace it."
         c "Can't you un-implode it?"
         p "I'm a Customer Synergy Specialist, not a magician."
@@ -314,6 +326,7 @@ label verb_replace:
         call updatePerformance(1)
         jump call_loop
     elif noun == "ink":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "It may be out of ink, do you have a spare cartridge?"
         c "I'm afraid not, the supply shortage has left me empty-handed."
         p "That's ok, we can proceed with a manual reload."
@@ -325,6 +338,7 @@ label verb_replace:
 
 label verb_go:
     if noun == "outside":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Try taking a brisk walk in the fresh air."
         c "But it's raining out there."
         p "Bring an umbrella."
@@ -338,6 +352,7 @@ label verb_go:
 
 label verb_purchase:
     if noun == "wingdows":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "You're going to need to purchase Wingdows."
         c "How much will that cost?"
         p "You'll have to consult Master B Ates. Legend has it he founded the company with one hand."
@@ -346,6 +361,7 @@ label verb_purchase:
         call updatePerformance(1)
         jump call_loop
     elif noun == "gelato":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "This is an easy one, you can resolve this issue by donating 5 bitcoin to Gelato Labs."
         c "What's a bitcoin?"
         p "It's just a bit of a coin, not even a full one, so it won't break the bank."
@@ -359,6 +375,7 @@ label verb_purchase:
 
 label verb_destroy:
     if noun == "router":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Let's try some percussive maintenance."
         c "Okay, sounds like a plan."
         p "Unplug your router."
@@ -374,6 +391,7 @@ label verb_destroy:
         call updatePerformance(-1)
         jump call_loop
     elif noun == "time machine":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Do you have a time machine?"
         c "As a matter of fact I do. What does that have to do with anything?"
         p "Well it could be causing interference with your router and slowing it down."
@@ -396,6 +414,7 @@ label verb_destroy:
 
 label verb_reinstall:
     if noun == "outlook":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "It could be a problem with outlook."
         c "Where should I be looking?"
         p "At your computer."
@@ -412,6 +431,7 @@ label verb_reinstall:
 
 label verb_ask:
     if noun == "post office":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Have you tried asking the post office?"
         c "They still carry email these days?"
         p "Well, mostly just the postmaster - especially when mail goes missing!"
@@ -423,6 +443,7 @@ label verb_ask:
 
 label verb_look:
     if noun == "harder":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Perhaps you should expand your search."
         c "How can I do that?"
         p "Well, where have you looked so far?"
@@ -436,6 +457,7 @@ label verb_look:
 
 label verb_unplug:
     if noun == "keyboard":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Have you tried unplugging it and plugging it back in again?"
         c "How can I do that?"
         p "Follow the cable from your keyboard to the back of your computer."
@@ -455,6 +477,7 @@ label verb_unplug:
         call updatePerformance(1)
         jump call_loop
     elif noun == "computer":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Try unplugging your computer."
         c "Okay."
         p "Now try typing your password."
@@ -467,6 +490,7 @@ label verb_unplug:
         call updatePerformance(-1)
         jump call_loop
     elif noun == "hard drive":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Try unplugging your hard drive."
         c "How is that supposed to help?"
         p "If you want to fix your password, you're going to need to trust me."
@@ -483,6 +507,7 @@ label verb_unplug:
 
 label verb_change:
     if noun == "hard drive":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Perhaps it is an issue with your hard drive."
         c "My hard what?"
         p "Drive, it's part of the RAID - Redundant Array of Inexpensive Disks."
@@ -491,6 +516,7 @@ label verb_change:
         call updatePerformance(-1)
         jump call_loop
     elif noun == "password":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "We're going to have to change your password."
         c "Okay, what do I do?"
         p "First, click reset password."
@@ -502,6 +528,7 @@ label verb_change:
         call updatePerformance(1)
         jump call_loop
     elif noun == "codes":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "You will need your backup code to allow us to change your main nuclear codes."
         c "What makes you think I have the backup code?"
         p "Sorry sir, without that I cannot le--"
@@ -512,6 +539,7 @@ label verb_change:
         call updatePerformance(1)
         jump call_loop
     elif noun == "keyboard":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Do you have another keyboard you can try?"
         c "Yes, I do."
         p "Okay, see if it works."
@@ -530,6 +558,7 @@ label verb_change:
 
 label verb_microwave:
     if noun == "computer":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Maybe it's an issue with the cooling system, it might be frozen."
         c "Wow, what can we do?"
         p "Let's try microwaving it."
@@ -543,6 +572,7 @@ label verb_microwave:
 
 label verb_clear:
     if noun == "cache":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "The memory buffer could be full, let's try clearing the cache."
         c "HOW MUCH CASH DO YOU NEED?"
         p "You can make a transfer of $1,000 at the following link."
@@ -556,6 +586,7 @@ label verb_clear:
 
 label verb_plug:
     if noun == "in":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Have you tried plugging in your mouse?"
         c "Do you think I'm dumb? Of course my mouse is plugged in! I want to speak to your m--"
         p "I'm sorry sir, let's try one more thing. Can you try unplugging the purple plug from the back of your computer, and putting it back in?"
@@ -568,6 +599,7 @@ label verb_plug:
 
 label verb_enable:
     if noun == "mouse keys":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "You need to enable a feature called Mouse Keys on your computer."
         c "Keys? Why do I need to put my keys in my mouse?"
         p "Your mouse has an ignition key slot just like your car. Flip your mouse over, and find the small round slot."
@@ -577,6 +609,7 @@ label verb_enable:
         call updatePerformance(-1)
         jump call_loop
     elif noun == "wifi":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "The issue may be with your connection. Let's make sure the WiFi is enabled."
         c "What's a WiFi?"
         p "It's that thing that miraculously connects network devices wirelessly."
@@ -590,6 +623,7 @@ label verb_enable:
 
 label verb_run:
     if noun == "away":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Where do you think you left them?"
         c "I think it may have been at the J20 conference over in Europe..."
         p "Sir, I would recommend running away as soon as possible. Our systems indicate targeting systems are locking in on your position."
@@ -599,6 +633,7 @@ label verb_run:
 
 label verb_defrag:
     if noun == "hard drive":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "I think we're going to need to defragment your hard drive to find them."
         c "hard drive? The only hard thing here is my rock hard di--"
         p "Nope, I'm not looking to be caught beneath the Concave Office desk."
@@ -608,6 +643,7 @@ label verb_defrag:
         
 label verb_try:
     if noun == "again":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Try again."
         c "NO."
         p "Why not?"
@@ -627,6 +663,7 @@ label verb_try:
 
 label verb_return:
     if noun == "movie":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "If you are not happy with the picture you can always initiate a return."
         c "Let's go ahead with that option."
         p "A return shipping label will be mailed to you."
@@ -639,6 +676,7 @@ label verb_return:
 
 label verb_wear:
     if noun == "glasses":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Do you happen to wear glasses?"
         c "As a matter of fact, I do."
         p "Try putting them on."
@@ -651,6 +689,7 @@ label verb_wear:
 
 label verb_wait:
     if noun == "longer":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "If you could just wait a bit longer I'll get this issue resolved for you."
         c "HOW MUCH LONGER???"
         p "No need to raise your voice, please remain calm."
@@ -663,6 +702,7 @@ label verb_wait:
 
 label verb_please:
     if noun == "hold":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Thank you for your concern, please hold."
         c "WAIT!"
         "*You place the customer on hold*"
@@ -676,6 +716,7 @@ label verb_please:
 
 label verb_be:
     if noun == "patient":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Tuesday, that's nearly 24 hours!"
         c "I know, this is driving me crazy!"
         p "I'm terribly sorry for your inconvenience."
@@ -735,6 +776,7 @@ label verb_be:
 
 label verb_plugin:
     if noun == "power bar":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Have you tried restarting your computer?"
         c "Yes, it's still showing nothing."
         p "Have you checked all the monitor cables?"
@@ -751,6 +793,7 @@ label verb_plugin:
         call updatePerformance(1)
         jump call_loop
     elif noun == "cables":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Have you checked all the cables?"
         c "Yes, they are all where they should be."
         p "Do you have any pets of the feline variety?"
@@ -765,6 +808,7 @@ label verb_plugin:
 
 label verb_clean:
     if noun == "screen":
+        hide screen countdown with Dissolve(0.5, alpha=True)
         p "Look closely at your screen to determine if there is a residue on it."
         c "Okay, it appears as though there may be."
         p "Lick your finger and run it over the screen to confirm."

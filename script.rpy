@@ -301,7 +301,6 @@ label continue_intro:
     jump call_loop
 
 label call_loop:
-    hide screen countdown with Dissolve(0.5, alpha=True)
     hide words with Dissolve(0.5, alpha=True)
     python:
         try:
@@ -328,7 +327,7 @@ label call_loop:
     window show
     hide text
 
-    $ countdown_range = 25 - (call_count // 9 + 1) * 5
+    $ countdown_range = max((17 - (call_count // 9 + 1) * 2), 2)
     $ countdown = countdown_range
     show screen countdown
 
