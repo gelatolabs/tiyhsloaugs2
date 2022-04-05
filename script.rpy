@@ -328,7 +328,7 @@ label call_loop:
     window show
     hide text
 
-    $ countdown_range = 130 - (call_count // 9 + 1) * 10
+    $ countdown_range = 25 - (call_count // 9 + 1) * 5
     $ countdown = countdown_range
     show screen countdown
 
