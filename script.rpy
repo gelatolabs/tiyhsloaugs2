@@ -375,6 +375,7 @@ label get_response:
      
     if verb in calls[current_call]["verbs"] and noun in calls[current_call]["nouns"] or verb in global_verbs:
         if renpy.has_label("verb_" + verb):
+            hide screen countdown
             $ renpy.jump("verb_" + verb)
         else:
             jump bad_answer
