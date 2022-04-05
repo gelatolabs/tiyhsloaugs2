@@ -730,6 +730,51 @@ label verb_be:
         jump call_loop
     jump bad_answer
 
+label verb_plugin:
+    if noun == "power bar":
+        p "Have you tried restarting your computer?"
+        c "Yes, it's still showing nothing."
+        p "Have you checked all the monitor cables?"
+        c "Yes, they're all connected."
+        p "Are the lights on?"
+        c "No."
+        p "Do you by chance happen to be using a power bar?"
+        c "Yes."
+        p "Try plugging it in."
+        c "Why would I do that - the power comes from that bar already!"
+        p "Just do it."
+        c "If you say so... WOW, it worked, you're a genius!"
+        p "Just doing my job. Have a great day."
+        call updatePerformance(1)
+        jump call_loop
+    elif noun == "cables":
+        p "Have you checked all the cables?"
+        c "Yes, they are all where they should be."
+        p "Do you have any pets of the feline variety?"
+        c "You mean cats? Yes - two actually."
+        p "Inspect those cables for bite marks."
+        c "Aha, I found one but it appears to be human!"
+        p "You may want to evacuate the area, sounds like you have a zombie problem."
+        c "They're coming for me, AHHHHH!!!!"
+        call updatePerformance(1)
+        jump call_loop
+    jump bad_answer
+
+label verb_clean:
+    if noun == "screen":
+        p "Look closely at your screen to determine if there is a residue on it."
+        c "Okay, it appears as though there may be."
+        p "Lick your finger and run it over the screen to confirm."
+        c "Ahhh, my finger turned black!"
+        p "Just as I figured, you've been hit by the Sharpie Bandits."
+        c "Sharpie bandits??"
+        p "Yes, they've been reported in your area - sick individuals that black out screens with sharpies."
+        c "Is there anything I can do?"
+        p "I'm afraid you'll need to purchase a new screen, and don't forget to lock your doors!"
+        call updatePerformance(1)
+        jump call_loop
+    jump bad_answer
+
 label bad_answer:
     $ badAns = renpy.random.randint(1,3)
     if badAns == 1:

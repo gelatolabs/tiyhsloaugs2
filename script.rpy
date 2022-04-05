@@ -115,6 +115,11 @@ define calls = {
         "message": "My printer won't print.",
         "verbs": ["install", "replace", "enable"],
         "nouns": ["drivers", "ink", "wifi"]
+    },
+    "monitor": {
+        "message": "My monitor is showing a black screen.",
+        "verbs": ["check", "clean"],
+        "nouns": ["power bar", "cables", "screen"]
     }
 }
 
