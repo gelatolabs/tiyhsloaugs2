@@ -184,7 +184,7 @@ label verb_reboot:
         p "May the forth be with you."
         call updatePerformance(-1)
         jump call_loop
-    elif noun == "computer" && current_call == "imploded":
+    elif noun == "computer" and current_call == "imploded":
         p "Have you tried turning it off and on again?"
         c "My computer?"
         p "Yes."
@@ -193,7 +193,7 @@ label verb_reboot:
         c "..."
         call updatePerformance(-1)
         jump call_loop
-    elif noun == "computer" && current_call == "broken":
+    elif noun == "computer" and current_call == "broken":
         p "I think it's best if we proceed with a power cycle."
         c "BUT I DON'T OWN A BIKE."
         p "That's okay, it's just the name of a process."
@@ -204,12 +204,12 @@ label verb_reboot:
         c "SURE THING BOSS!"
         call updatePerformance(1)
         jump call_loop
-    elif noun == "computer" && current_call == "mouse":
+    elif noun == "computer" and current_call == "mouse":
         p "Try restarting your computer please."
         c "The last person told me to do that already. It didn't do anything!"
         p "Please try it again anyway."
         c "No."
-    elif noun == "computer" && current_call == "password":
+    elif noun == "computer" and current_call == "password":
         p "Have you tried turning your computer off and on again?"
         c "No."
         p "Can you?"
