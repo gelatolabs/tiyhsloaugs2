@@ -54,7 +54,7 @@ define calls = {
     "imploded": {
         "message": "Help, my computer imploded??",
         "verbs": ["reboot", "replace", "go"],
-        "nouns": ["mainframe", "outside", "cable"]
+        "nouns": ["computer", "outside", "cable"]
     },
     "genuine": {
         "message": "The error message says my copy of Wingdows is not genuine.",
@@ -118,7 +118,7 @@ define calls = {
     },
     "monitor": {
         "message": "My monitor is showing a black screen.",
-        "verbs": ["check", "clean"],
+        "verbs": ["plugin", "clean"],
         "nouns": ["power bar", "cables", "screen"]
     }
 }
