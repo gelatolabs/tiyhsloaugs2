@@ -88,6 +88,14 @@ label verb_install:
         "Five hours later Chrome is still not set as default and the customer hangs up."
         call updatePerformance(-1)
         jump call_loop
+    elif noun == "drivers":
+        p "Let's try installing the drivers."
+        c "I thought these things had AI drivers."
+        p "No, AI isn't quite there yet - we still need to do some things the old fashioned way."
+        c "Who would be crazy enough to drive one of these?"
+        p "Buckle up, you're about to find out!"
+        call updatePerformance(-1)
+        jump call_loop
     jump bad_answer
 
 label verb_the:
@@ -301,6 +309,14 @@ label verb_replace:
         c "Hmm... I guess 2 for 3 ain't bad. I'll take it."
         p "Great. I'll transfer you to our sales department."
         call updatePerformance(1)
+        jump call_loop
+    elif noun == "ink":
+        p "It may be out of ink, do you have a spare cartridge?"
+        c "I'm afraid not, the supply shortage has left me empty-handed."
+        p "That's ok, we can proceed with a manual reload."
+        c "Perfect, what's involved?"
+        p "You're going to need a pair of scissors, and all the ballpoint pens you can find..."
+        call updatePerformance(-1)
         jump call_loop
     jump bad_answer
 
@@ -555,6 +571,16 @@ label verb_enable:
         c "Okay..."
         p "Put your key in there. Don't be afraid to put some force into it, it may be a tight fit on the first time."
         "*crunch*"
+        call updatePerformance(-1)
+        jump call_loop
+    elif noun == "wifi":
+        p "The issue may be with your connection. Let's make sure the WiFi is enabled."
+        c "What's a WiFi?"
+        p "It's that thing that miraculously connects network devices wirelessly."
+        c "Sounds like magic."
+        p "Only when it works. Try enabling WiFi on your printer."
+        c "I'm waving my phone at my printer but it doesn't seem to be enabling anything."
+        p "It's going to be a long night..."
         call updatePerformance(-1)
         jump call_loop
     jump bad_answer

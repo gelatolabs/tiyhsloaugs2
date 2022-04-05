@@ -110,6 +110,11 @@ define calls = {
         "message": "My mouse doesn't work.",
         "verbs": ["enable", "plug", "reboot"],
         "nouns": ["mouse keys", "in", "computer", "modem"]
+    },
+    "printer": {
+        "message": "My printer won't print.",
+        "verbs": ["install", "replace", "enable"]
+        "nouns": ["drivers", "ink", "wifi"]
     }
 }
 
