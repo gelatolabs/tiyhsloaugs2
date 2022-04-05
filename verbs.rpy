@@ -541,6 +541,90 @@ label verb_wear:
         jump call_loop
     jump bad_answer
 
+label verb_wait:
+    if noun == "longer":
+        p "If you could just wait a bit longer I'll get this issue resolved for you."
+        c "HOW MUCH LONGER???"
+        p "No need to raise your voice, please remain calm."
+        c "I AM NOT CALM, GIVE ME AN ANSWER!!"
+        p "We do not tolerate that type of harassment here at MegaCorp Industries.  Have a pleasant day!"
+        c "NOOOO, DON'T HANNGG UUU"
+        call updatePerformance(-1)
+        jump call_loop
+    jump bad_answer
+
+label verb_please:
+    if noun == "hold":
+        p "Thank you for your concern, please hold."
+        c "WAIT!"
+        "*You place the customer on hold*"
+        p "Thank you for holding, please continue to hold."
+        c "NOOOOOO!"
+        "*You place the customer on hold*"
+        p "Unfortunately none of our agents are currently able to take your call, please leave a message."
+        call updatePerformance(-1)
+        jump call_loop
+    jump bad_answer
+
+label verb_be:
+    if noun == "patient":
+        p "Tuesday, that's nearly 24 hours!"
+        c "I know, this is driving me crazy!"
+        p "I'm terribly sorry for your inconvenience."
+        c "Please just give me some help."
+        p "I ask you to please be patient while I retrieve your file."
+        c "You expect me to be patient, after all this?"
+        p "Let me guide you through a little breathing exercise."
+        c "What?"
+        p "Please take a deep breath in through your nose."
+        c "*inhales*"
+        p "One."
+        p "Two."
+        p "Three."
+        p "Four."
+        p "Five."
+        p "Out through your nose."
+        c "*exhales*"
+        p "One."
+        p "Two."
+        p "Three."
+        p "Four."
+        p "Five."
+        p "In."
+        c "*inhales*"
+        p "One."
+        p "Two."
+        p "Three."
+        p "Four."
+        p "Five."
+        p "Out."
+        c "*exhales*"
+        p "One."
+        p "Two."
+        p "Three."
+        p "Four."
+        p "Five."
+        p "In."
+        c "*inhales*"
+        p "One."
+        p "Two."
+        p "Three."
+        p "Four."
+        p "Five."
+        p "Out."
+        c "*exhales*"
+        p "Feeling better?"
+        c "Wow, yes I am!"
+        p "Ready to be patient?"
+        c "Absolutely."
+        p "It seems that you have been transferred to the wrong department."
+        c "WHATT??!!??!"
+        p "Please remain on the line and an agent will be with you shortly."
+        c "AHHHHHHHHHHHHHHHHHHHHHH!!!"
+        call updatePerformance(1)
+        jump call_loop
+    jump bad_answer
+
 label bad_answer:
     $ badAns = renpy.random.randint(1,3)
     if badAns == 1:
