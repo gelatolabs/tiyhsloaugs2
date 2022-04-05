@@ -184,7 +184,7 @@ transform text_shake:
             repeat    
 
 label start:
-    play chatter chatter
+    play chatter chatter volume 0.2
     stop music fadeout 2
     scene bg "#b1b1b1"
     image smoothoffice = "images/bg office.png"

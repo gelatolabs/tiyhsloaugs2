@@ -138,6 +138,32 @@ label verb_reboot:
         c "It's blazing fast now, I've been streaming my favourite show {i}Love at First Bite{/i} for the past 30 minutes. Thank you!!"
         call updatePerformance(1)
         jump call_loop
+    elif noun == "modem" and current_call == "modem":
+        p "Well then, let's try rebooting it."
+        c "What, you want me to kick it?"
+        p "Don't do that. You just need to pull the power plug from it."
+        c "Ok, done."
+        "*loud beeps over the phone*"
+        p "I think you unplugged your security system instead."
+        c "Haha sorry they're both square things and you know how it is with shapes."
+        p "Of course."
+        "*beeping stops*"
+        c "Ok I unplugged the {i}moter{/i} this time."
+        p "Now plug it back in. And wait 5 minutes."
+        "."
+        ".."
+        "..."
+        ".."
+        "."
+        c "Yes, YouToob is loading now!"
+        call updatePerformance(1)
+        jump call_loop
+    elif noun == "modem" and current_call == "mouse":
+        p "You may need to reboot your internet modem."
+        c "How does that fix my mouse?"
+        p "It doesn't, but the quality assurance agents don't listen to call after a 'solution' is given."
+        call updatePerformance(-1)
+        jump call_loop
     elif noun == "time machine":
         p "Do you happen to have a hot tub in the vicinity?"
         c "Actually yes, we have one in the backyard."
@@ -170,12 +196,39 @@ label verb_reboot:
         c "Sure thing boss!"
         call updatePerformance(1)
         jump call_loop
+    elif noun == "computer" && current_call == "mouse":
+        p "Try restarting your computer please."
+        c "The last person told me to do that already. It didn't do anything!"
+        p "Please try it again anyway."
+        c "No."
+        call updatePerformance(-1)
+        jump call_loop
     elif noun == "yourself" and current_call == "modem":
         p "I think you need to reboot yourself."
         c "...What?"
         p "You heard me. You need to kick yourself in the ass with a boot"
         c "You'll be hearing from my lawyer."
         call updatePerformance(-2)
+        jump call_loop
+    elif noun == "refrigerator":
+        p "Is your refrigerator running?"
+        c "Probably, why?"
+        p "Better go kick it to be sure."
+        call updatePerformance(-1)
+        jump call_loop
+    elif noun == "cellphone":
+        p "Let's make sure it's not a problem with your phone."
+        c "Ok, sure."
+        p "Can you restart it now?"
+        c "Sure, just one seco--"
+        "Works every time."
+        call updatePerformance(-1)
+        jump call_loop
+    elif noun == "server":
+        p "It's actually a problem with the website you're viewing. They haven't updated the hyperflux compression interchange layer they are using since 1997."
+        c "Well what do I do? I need to see my cat pictures!"
+        p "Go bug them about it, not me."
+        call updatePerformance(-1)
         jump call_loop
     jump bad_answer
 
@@ -332,6 +385,16 @@ label verb_change:
         c "Thanks! I hope I can remember it."
         call updatePerformance(1)
         jump call_loop
+    elif noun == "codes":
+        p "You will need your backup code to allow us to change your main nuclear codes."
+        c "What makes you think I have the backup code?"
+        p "Sorry sir, without that I cannot le--"
+        c "er, 1234?"
+        p "Correct. What would you like to change it to?"
+        c "0000"
+        p "Excellent choice. Have a nice day."
+        call updatePerformance(1)
+        jump call_loop
     jump bad_answer
 
 label verb_microwave:
@@ -383,6 +446,24 @@ label verb_enable:
         call updatePerformance(-1)
         jump call_loop
     jump bad_answer
+
+label verb_run:
+    if noun == "away":
+        p "Where do you think you left them?"
+        c "I think it may have been at the J20 conference over in Europe..."
+        p "Sir, I would recommend running away as soon as possible. Our systems indicate targeting systems are locking in on your position."
+        c "OH SH--"
+        call updatePerformance(-1)
+        jump call_loop
+
+label verb_defrag:
+    if noun == "hard drive":
+        p "I think we're going to need to defragment your hard drive to find them."
+        c "hard drive? The only hard thing here is my rock hard di--"
+        p "Nope, I'm not looking to be caught beneath the Concave Office desk."
+        call updatePerformance(-1)
+        call updateSanity(-0.3)
+        jump call_loop
 
 label bad_answer:
     $ badAns = renpy.random.randint(1,3)
