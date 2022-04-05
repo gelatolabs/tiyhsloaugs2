@@ -188,6 +188,11 @@ transform text_shake:
             linear 1.0 alpha .2
             repeat    
 
+transform talk_bounce:
+    ease 0.3 yoffset 10
+    ease 0.3 yoffset 0
+    repeat
+
 label start:
     play chatter chatter volume 0.2
     stop music fadeout 2
@@ -205,6 +210,7 @@ label start:
     show player saner at left with Dissolve(0.5, alpha=True)
     show manager normal at right with Dissolve(0.5, alpha=True)
 
+    show manager at talk_bounce
     voice manager1
     m "Welcome to MegaCorp Industries, [pname]!"
     voice manager2
