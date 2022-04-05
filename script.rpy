@@ -113,7 +113,7 @@ define calls = {
     },
     "printer": {
         "message": "My printer won't print.",
-        "verbs": ["install", "replace", "enable"]
+        "verbs": ["install", "replace", "enable"],
         "nouns": ["drivers", "ink", "wifi"]
     }
 }
