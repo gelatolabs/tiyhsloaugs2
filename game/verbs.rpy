@@ -3,8 +3,8 @@ label verb_refer:
         hide screen countdown with Dissolve(0.5, alpha=True)
         p "Let me transfer you to our sales department."        
         c "Wait-"
-        call updatePerformance(1)
-        call updateSanity(-0.25)
+        call updatePerformance(1) from _call_updatePerformance
+        call updateSanity(-0.25) from _call_updateSanity_2
         jump call_loop
     jump bad_answer
 
@@ -13,7 +13,7 @@ label verb_insult:
         hide screen countdown with Dissolve(0.5, alpha=True)
         p "You smell."        
         c "Excuse me?"
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_1
         jump call_loop
     jump bad_answer
 
@@ -29,7 +29,7 @@ label verb_call:
         "FBI" "Are you kidding me, call the coast guard you numbskull!"
         "*The FBI Agent hangs up* Oh well, it was worth a try."       
         p "We appear to be having technical difficulties at this moment, please call again later."       
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_2
         jump call_loop
     jump bad_answer
 
@@ -49,7 +49,7 @@ label verb_install:
         "."
         c "What the hell is this? Give me my Wingdows back!"      
         p "Sorry, this is a one-way install."       
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_3
         jump call_loop
     if noun == "wingdows":       
         hide screen countdown with Dissolve(0.5, alpha=True)
@@ -59,7 +59,7 @@ label verb_install:
         c "Perfect, thank you - what is his number."       
         p "1-900-WIN-BLOW. Thanks and have a prosperous future with a happy ending."
         
-        call updatePerformance(1)
+        call updatePerformance(1) from _call_updatePerformance_4
         jump call_loop
     elif noun == "aol":
         hide screen countdown with Dissolve(0.5, alpha=True)
@@ -70,7 +70,7 @@ label verb_install:
         p "It's called AOL, short for America's Open Legs."
         c "Sounds like a warm invitation."
         p "You're in for a big surprise."
-        call updatePerformance(1)
+        call updatePerformance(1) from _call_updatePerformance_5
         jump call_loop
     elif noun == "chrome":
         hide screen countdown with Dissolve(0.5, alpha=True)
@@ -80,7 +80,7 @@ label verb_install:
         c "Sounds like fun."
         p "You have no idea."
         "Five hours later Chrome is still not set as default and the customer hangs up."
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_6
         jump call_loop
     elif noun == "drivers":
         hide screen countdown with Dissolve(0.5, alpha=True)
@@ -89,7 +89,7 @@ label verb_install:
         p "No, AI isn't quite there yet - we still need to do some things the old fashioned way."
         c "Who would be crazy enough to drive one of these?"
         p "Buckle up, you're about to find out!"
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_7
         jump call_loop
     jump bad_answer
 
@@ -100,7 +100,7 @@ label verb_the:
         c "Well, okay. I guess I'll just stop using the Internet."
         p "That's probably for the best."
         c "Thanks for your help!"
-        call updatePerformance(1)
+        call updatePerformance(1) from _call_updatePerformance_8
         jump call_loop
     elif noun == "fart menu":
         hide screen countdown with Dissolve(0.5, alpha=True)
@@ -114,7 +114,7 @@ label verb_the:
         c "It is in the fart menu!"
         p "Isn't that good?"
         c "No. I thought I had escaped. NOOOOOOOOOOOOOOOOOOOOOO"
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_9
         jump call_loop
     jump bad_answer
 
@@ -142,7 +142,7 @@ label verb_reboot:
         c "Just like you said, wait 30 minutes..."
         p "Wow, does your internet work now??"
         c "It's blazing fast now, I've been streaming my favourite show {i}Love at First Bite{/i} for the past 30 minutes. Thank you!!"
-        call updatePerformance(1)
+        call updatePerformance(1) from _call_updatePerformance_10
         jump call_loop
     elif noun == "modem" and current_call == "modem":
         hide screen countdown with Dissolve(0.5, alpha=True)
@@ -163,14 +163,14 @@ label verb_reboot:
         ".."
         "."
         c "Yes, YouToob is loading now!"
-        call updatePerformance(1)
+        call updatePerformance(1) from _call_updatePerformance_11
         jump call_loop
     elif noun == "modem" and current_call == "mouse":
         hide screen countdown with Dissolve(0.5, alpha=True)
         p "You may need to reboot your internet modem."
         c "How does that fix my mouse?"
         p "It doesn't, but the quality assurance agents don't listen to call after a 'solution' is given."
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_12
         jump call_loop
     elif noun == "time machine":
         hide screen countdown with Dissolve(0.5, alpha=True)
@@ -183,7 +183,7 @@ label verb_reboot:
         p "According to bro science this will recalibrate the flex capacitor and iniate a resequencing of the warp core."
         c "I'll try that, thanks for the tip!"
         p "May the forth be with you."
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_13
         jump call_loop
     elif noun == "computer" and current_call == "imploded":
         hide screen countdown with Dissolve(0.5, alpha=True)
@@ -193,7 +193,7 @@ label verb_reboot:
         c "But it doesn't exist any more. It imploded."
         p "Right. Well sorry, that's the best I've got!"
         c "..."
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_14
         jump call_loop
     elif noun == "computer" and current_call == "broken":
         hide screen countdown with Dissolve(0.5, alpha=True)
@@ -205,7 +205,7 @@ label verb_reboot:
         c "BUT HOW CAN I FIT MY PC IN THE WASHING MACHINE?"
         p "Just press the power button, wait for a minute and then press it again."
         c "SURE THING BOSS!"
-        call updatePerformance(1)
+        call updatePerformance(1) from _call_updatePerformance_15
         jump call_loop
     elif noun == "computer" and current_call == "mouse":
         hide screen countdown with Dissolve(0.5, alpha=True)
@@ -213,7 +213,7 @@ label verb_reboot:
         c "The last person told me to do that already. It didn't do anything!"
         p "Please try it again anyway."
         c "No."
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_16
         jump call_loop
     elif noun == "computer" and current_call == "password":
         hide screen countdown with Dissolve(0.5, alpha=True)
@@ -234,7 +234,7 @@ label verb_reboot:
         p "I don't know how."
         c "Oh."
         p "Bye!"
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_17
         jump call_loop
     elif noun == "yourself" and current_call == "modem":
         hide screen countdown with Dissolve(0.5, alpha=True)
@@ -242,14 +242,14 @@ label verb_reboot:
         c "...What?"
         p "You heard me. You need to kick yourself in the ass with a boot."
         c "You'll be hearing from my lawyer."
-        call updatePerformance(-2)
+        call updatePerformance(-2) from _call_updatePerformance_18
         jump call_loop
     elif noun == "refrigerator":
         hide screen countdown with Dissolve(0.5, alpha=True)
         p "Is your refrigerator running?"
         c "Probably, why?"
         p "Better go kick it to be sure."
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_19
         jump call_loop
     elif noun == "cellphone":
         hide screen countdown with Dissolve(0.5, alpha=True)
@@ -258,14 +258,14 @@ label verb_reboot:
         p "Can you restart it now?"
         c "Sure, just one seco--"
         "Works every time."
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_20
         jump call_loop
     elif noun == "server":
         hide screen countdown with Dissolve(0.5, alpha=True)
         p "It's actually a problem with the website you're viewing. They haven't updated the hyperflux compression interchange layer they are using since 1997."
         c "Well what do I do? I need to see my cat pictures!"
         p "Go bug them about it, not me."
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_21
         jump call_loop
     jump bad_answer
 
@@ -279,7 +279,7 @@ label verb_lower:
         p "You got that right, you just need to lower your standards."
         c "I suppose the picture isn't all that bad."
         p "Use your imagination to see past the pixels."
-        call updatePerformance(1)
+        call updatePerformance(1) from _call_updatePerformance_22
         jump call_loop
     jump bad_answer
 
@@ -290,7 +290,7 @@ label verb_raise:
         c "Wouldn't that just make this worse?"
         p "Uh... I mean, lower them."
         c "I don't think they go low enough to put up with you."
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_23
         jump call_loop
     jump bad_answer
 
@@ -302,7 +302,7 @@ label verb_replace:
         p "I meant the cable from the computer to the wall."
         c "I've seen that show before, which episode?"
         p "The one that ends with me hanging up."
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_24
         jump call_loop
     elif noun == "computer":
         hide screen countdown with Dissolve(0.5, alpha=True)
@@ -323,7 +323,7 @@ label verb_replace:
         p "No."
         c "Hmm... I guess 2 for 3 ain't bad. I'll take it."
         p "Great. I'll transfer you to our sales department."
-        call updatePerformance(1)
+        call updatePerformance(1) from _call_updatePerformance_25
         jump call_loop
     elif noun == "ink":
         hide screen countdown with Dissolve(0.5, alpha=True)
@@ -332,7 +332,7 @@ label verb_replace:
         p "That's ok, we can proceed with a manual reload."
         c "Perfect, what's involved?"
         p "You're going to need a pair of scissors, and all the ballpoint pens you can find..."
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_26
         jump call_loop
     jump bad_answer
 
@@ -346,7 +346,7 @@ label verb_go:
         p "I hear Uber Feats delivers them now."
         c "I'll get right on that."
         p "Keep me posted."
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_27
         jump call_loop
     jump bad_answer
 
@@ -358,7 +358,7 @@ label verb_purchase:
         p "You'll have to consult Master B Ates. Legend has it he founded the company with one hand."
         c "Perfect, thank you - what is his number."
         p "1-900-WIN-BLOW. Thanks and have a prosperous future with a happy ending."
-        call updatePerformance(1)
+        call updatePerformance(1) from _call_updatePerformance_28
         jump call_loop
     elif noun == "gelato":
         hide screen countdown with Dissolve(0.5, alpha=True)
@@ -369,7 +369,7 @@ label verb_purchase:
         p "Once your transfer is complete you will receive an email with your activation code."
         c "I'll get right on that."
         p "Thank you for your support. We aim to satisfy all of our customers every day in every way."
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_29
         jump call_loop
     jump bad_answer
 
@@ -388,7 +388,7 @@ label verb_destroy:
         c "Router smashed."
         p "Excellent, order a new one and call me when it arrives."
         c "Wait, I thought we were fixing this one!?!?"
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_30
         jump call_loop
     elif noun == "time machine":
         hide screen countdown with Dissolve(0.5, alpha=True)
@@ -408,7 +408,7 @@ label verb_destroy:
         c "I destroyed it, but the Internet is still slow!"
         p "Oh. Well, it was worth a try."
         c "No it wasn't! What have you done??"
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_31
         jump call_loop
     jump bad_answer
 
@@ -425,7 +425,7 @@ label verb_reinstall:
         c "I've never done that before."
         p "Me neither, first time for everything!"
         "Five escalations and four hours later they are back to outlooking."
-        call updatePerformance(1)
+        call updatePerformance(1) from _call_updatePerformance_32
         jump call_loop
     jump bad_answer
 
@@ -437,7 +437,7 @@ label verb_ask:
         p "Well, mostly just the postmaster - especially when mail goes missing!"
         c "Perfect, I'll give them a call."
         p "Good luck!"
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_33
         jump call_loop
     jump bad_answer
 
@@ -451,7 +451,7 @@ label verb_look:
         p "Try looking inside the internet."
         c "Inside the internet, how do I get there?"
         p "Just rent a VHS copy of the Matrix and you'll have everything you need."
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_34
         jump call_loop
     jump bad_answer
 
@@ -474,7 +474,7 @@ label verb_unplug:
         c "Yes."
         p "In that case, throw it in the garbage."
         c "Thanks for the tip."
-        call updatePerformance(1)
+        call updatePerformance(1) from _call_updatePerformance_35
         jump call_loop
     elif noun == "computer":
         hide screen countdown with Dissolve(0.5, alpha=True)
@@ -487,7 +487,7 @@ label verb_unplug:
         p "You're welcome!"
         c "But my computer is off. I don't see anything."
         p "You're welcome!!!"
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_36
         jump call_loop
     elif noun == "hard drive":
         hide screen countdown with Dissolve(0.5, alpha=True)
@@ -501,7 +501,7 @@ label verb_unplug:
         p "Yes."
         c "Now what?"
         p "Please don't tell my manager."
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_37
         jump call_loop
     jump bad_answer
 
@@ -513,7 +513,7 @@ label verb_change:
         p "Drive, it's part of the RAID - Redundant Array of Inexpensive Disks."
         c "Great, what should we do?"
         p "It's going to be a long night..."
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_38
         jump call_loop
     elif noun == "password":
         hide screen countdown with Dissolve(0.5, alpha=True)
@@ -525,7 +525,7 @@ label verb_change:
         c "Any special requirements?"
         p "Just one - use only asterisks."
         c "Thanks! I hope I can remember it."
-        call updatePerformance(1)
+        call updatePerformance(1) from _call_updatePerformance_39
         jump call_loop
     elif noun == "codes":
         hide screen countdown with Dissolve(0.5, alpha=True)
@@ -536,7 +536,7 @@ label verb_change:
         p "Correct. What would you like to change it to?"
         c "0000"
         p "Excellent choice. Have a nice day."
-        call updatePerformance(1)
+        call updatePerformance(1) from _call_updatePerformance_40
         jump call_loop
     elif noun == "keyboard":
         hide screen countdown with Dissolve(0.5, alpha=True)
@@ -552,7 +552,7 @@ label verb_change:
         p "Hmm... I guess it must be a software problem."
         c "Okay, can you fix it?"
         p "Nope, sorry. I'm more of a hardware person. Good luck with that!"
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_41
         jump call_loop
     jump bad_answer
 
@@ -566,7 +566,7 @@ label verb_microwave:
         p "Definitely popcorn."
         c "Here goes nothing!"
         "Audible snap crackle pops can be heard in the background before the connection is lost."
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_42
         jump call_loop
     jump bad_answer
 
@@ -580,7 +580,7 @@ label verb_clear:
         c "DONE."
         p "Perfect, now I will wait until the payment is verified and get back to you in 3-5 business days."
         c "THANKS!"
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_43
         jump call_loop
     jump bad_answer
 
@@ -593,7 +593,7 @@ label verb_plug:
         c "Fine."
         "..."
         c "Oh hey, it worked! Told you my mouse was plugged in."
-        call updatePerformance(1)
+        call updatePerformance(1) from _call_updatePerformance_44
         jump call_loop
     jump bad_answer
 
@@ -606,7 +606,7 @@ label verb_enable:
         c "Okay..."
         p "Put your key in there. Don't be afraid to put some force into it, it may be a tight fit on the first time."
         "*crunch*"
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_45
         jump call_loop
     elif noun == "wifi":
         hide screen countdown with Dissolve(0.5, alpha=True)
@@ -617,7 +617,7 @@ label verb_enable:
         p "Only when it works. Try enabling WiFi on your printer."
         c "I'm waving my phone at my printer but it doesn't seem to be enabling anything."
         p "It's going to be a long night..."
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_46
         jump call_loop
     jump bad_answer
 
@@ -628,7 +628,7 @@ label verb_run:
         c "I think it may have been at the J20 conference over in Europe..."
         p "Sir, I would recommend running away as soon as possible. Our systems indicate targeting systems are locking in on your position."
         c "OH SH--"
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_47
         jump call_loop
 
 label verb_defrag:
@@ -637,8 +637,8 @@ label verb_defrag:
         p "I think we're going to need to defragment your hard drive to find them."
         c "hard drive? The only hard thing here is my rock hard di--"
         p "Nope, I'm not looking to be caught beneath the Concave Office desk."
-        call updatePerformance(-1)
-        call updateSanity(-0.3)
+        call updatePerformance(-1) from _call_updatePerformance_48
+        call updateSanity(-0.3) from _call_updateSanity_3
         jump call_loop
         
 label verb_try:
@@ -657,7 +657,7 @@ label verb_try:
         p "YES."
         c "NO."
         p "Good bye."
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_49
         jump call_loop
     jump bad_answer
 
@@ -670,7 +670,7 @@ label verb_return:
         c "It's a digital movie so how can I ship it back?"
         p "Print out the code, and securely package it."
         c "Thank you!"
-        call updatePerformance(1)
+        call updatePerformance(1) from _call_updatePerformance_50
         jump call_loop
     jump bad_answer
 
@@ -683,7 +683,7 @@ label verb_wear:
         c "Never thought of that, wow this is much better!"
         p "If you would like to upgrade to 3D, \"borrow\" a pair of 3D glasses from the movie theatre."
         c "Thanks for the tip!"
-        call updatePerformance(1)
+        call updatePerformance(1) from _call_updatePerformance_51
         jump call_loop
     jump bad_answer
 
@@ -696,7 +696,7 @@ label verb_wait:
         c "I AM NOT CALM, GIVE ME AN ANSWER!!"
         p "We do not tolerate that type of harassment here at MegaCorp Industries.  Have a pleasant day!"
         c "NOOOO, DON'T HANNGG UUU"
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_52
         jump call_loop
     jump bad_answer
 
@@ -710,7 +710,7 @@ label verb_please:
         c "NOOOOOO!"
         "*You place the customer on hold*"
         p "Unfortunately none of our agents are currently able to take your call, please leave a message."
-        call updatePerformance(-1)
+        call updatePerformance(-1) from _call_updatePerformance_53
         jump call_loop
     jump bad_answer
 
@@ -770,7 +770,7 @@ label verb_be:
         c "WHATT??!!??!"
         p "Please remain on the line and an agent will be with you shortly."
         c "AHHHHHHHHHHHHHHHHHHHHHH!!!"
-        call updatePerformance(1)
+        call updatePerformance(1) from _call_updatePerformance_54
         jump call_loop
     jump bad_answer
 
@@ -790,7 +790,7 @@ label verb_plugin:
         p "Just do it."
         c "If you say so... WOW, it worked, you're a genius!"
         p "Just doing my job. Have a great day."
-        call updatePerformance(1)
+        call updatePerformance(1) from _call_updatePerformance_55
         jump call_loop
     elif noun == "cables":
         hide screen countdown with Dissolve(0.5, alpha=True)
@@ -802,7 +802,7 @@ label verb_plugin:
         c "Aha, I found one but it appears to be human!"
         p "You may want to evacuate the area, sounds like you have a zombie problem."
         c "They're coming for me, AHHHHH!!!!"
-        call updatePerformance(1)
+        call updatePerformance(1) from _call_updatePerformance_56
         jump call_loop
     jump bad_answer
 
@@ -818,7 +818,7 @@ label verb_clean:
         p "Yes, they've been reported in your area - sick individuals that black out screens with sharpies."
         c "Is there anything I can do?"
         p "I'm afraid you'll need to purchase a new screen, and don't forget to lock your doors!"
-        call updatePerformance(1)
+        call updatePerformance(1) from _call_updatePerformance_57
         jump call_loop
     jump bad_answer
 
@@ -837,6 +837,6 @@ label bad_answer:
     elif badAns == 3:
         c "Stop wasting my time. I have things to do!"
     p "Okay, let's try something else."
-    call updateSanity(-0.1)
-    call updatePerformance(-0.2)
+    call updateSanity(-0.1) from _call_updateSanity_4
+    call updatePerformance(-0.2) from _call_updatePerformance_58
     jump get_response

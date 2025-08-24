@@ -332,7 +332,7 @@ label call_loop:
     $ countdown = countdown_range
     show screen countdown
 
-    call updateSanity(-0.2)
+    call updateSanity(-0.2) from _call_updateSanity
     if sanity >= 3:
         p "Thank you for calling MegaCorp, how can I help you today?"
     else:
@@ -464,7 +464,7 @@ label performance_review:
 
     $ performance = 0
     hide manager fadeout 1.0
-    call updateSanity(0) # hacky way of restarting the correct music track
+    call updateSanity(0) from _call_updateSanity_1 # hacky way of restarting the correct music track
     jump call_loop
 
 label game_over:
